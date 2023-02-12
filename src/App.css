@@ -1,0 +1,59 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  /* color: rgb(102, 176, 102); */
+}
+
+.app {
+  width: 100dvw;
+  height: 100vh;
+}
+
+.splash {
+  width: 100dvw;
+  height: 100vh;
+}
+.main {
+  display: grid;
+  place-items: center;
+  /* background: whitesmoke; */
+  height: 100%;
+  width: 100%;
+}
+
+.routeContainer {
+  /* background: white; */
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+}
+.routeLink {
+  padding: 1rem 4rem;
+  border: 2px solid rgb(102, 176, 102);
+  background: rgb(102, 176, 102);
+  color: white;
+  font-size: 1.25rem;
+  scale: 1;
+  transition: scale 0.25s linear;
+}
+.routeLink:is(:hover, :focus) {
+  scale: 1.05;
+}
+/* .routeLink:hover {
+  scale: 1.1;
+} */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
