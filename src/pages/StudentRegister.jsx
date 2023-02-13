@@ -1,7 +1,7 @@
 import fakeLogo from "/Ellipse.png";
 import fakeProfile from "/profile-pic.png";
 import StudentForm from "../components/StudentForm";
-import { useAuth } from "@arcana/auth";
+import { useAuth } from "@arcana/auth-react";
 
 export default function StudentRegister() {
   const { user } = useAuth();
