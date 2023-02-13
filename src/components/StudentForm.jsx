@@ -1,11 +1,11 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-export default function StudentForm() {
+export default function StudentForm({ name }) {
   return (
     <Formik
       initialValues={{
-        fullName: "",
+        fullName: name,
         universityId: "",
         contact: "",
       }}

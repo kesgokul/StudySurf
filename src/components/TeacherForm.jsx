@@ -8,11 +8,11 @@ const classes = [
   "Computer Science",
 ];
 
-export default function TeacherForm() {
+export default function TeacherForm({ name }) {
   return (
     <Formik
       initialValues={{
-        fullName: "",
+        fullName: name,
         teacherId: "",
         contact: "",
         class: "",
