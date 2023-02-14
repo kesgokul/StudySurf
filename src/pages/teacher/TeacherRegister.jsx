@@ -1,12 +1,15 @@
 import fakeLogo from "/Ellipse.png";
 import fakeProfile from "/profile-pic.png";
-import StudentForm from "../components/StudentForm";
-import { useAuth } from "@arcana/auth-react";
+import TeacherForm from "../components/TeacherForm";
+import Layout from "../components/Layout";
 
-export default function StudentRegister() {
+import { useAuth } from "@arcana/auth-react";
+import { useEffect } from "react";
+
+export default function TeacherRegister() {
   const { user } = useAuth();
   return (
-    <div className="w-screen h-screen bg-gradient-to-br from-white to-rose-100 flex flex-col justify-between items-center">
+    <Layout>
       <div className="mb-auto mt-10 px-4 w-full flex justify-between items-center">
         <div className="flex justify-start items-center">
           <img className=" w-14 h-14" src={fakeLogo} alt="logo" />
@@ -19,10 +22,7 @@ export default function StudentRegister() {
         />
       </div>
       <h2 className="text-2xl font-semibold">Add you details</h2>
-      <StudentForm name={user.name} />
-      <p className={"mt-auto text-gray-400"}>
-        ©Splash Screen | All rights reserved
-      </p>
-    </div>
+      <TeacherForm name={user.name} />
+    </Layout>
   );
 }

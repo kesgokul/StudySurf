@@ -15,11 +15,7 @@ function App() {
 
   return (
     <div className={"w-screen h-screen"}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-400 object-cover bg-no-repeat flex flex-col justify-center items-center"
-      >
+      <motion.div className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-400 object-cover bg-no-repeat flex flex-col justify-center items-center">
         <img src={fakeLogo} className="mt-auto h-40 w-40 " alt="app logo" />
         <motion.h1
           className={"self-center mt-4 text-white"}
