@@ -9,6 +9,14 @@ module.exports = {
       colors: {
         "google-blue": "#4285f4",
         "google-blue-active": "#1669F2",
+        "input-orange": "#FF9207",
+        "input-brown": "#814B0D",
+        "button-green": "#80ED99",
+        "button-yellow": "#EDE280",
+        "button-text-green": "#075300",
+      },
+      fontFamily: {
+        righteous: ["Righteous"],
       },
     },
   },

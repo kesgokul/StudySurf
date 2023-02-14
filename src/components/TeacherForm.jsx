@@ -79,7 +79,7 @@ export default function TeacherForm({ name }) {
           })}
         </Field>
         <button
-          className=" py-4 mt-20 mx-auto w-1/2 bg-orange-400 text-white text-lg rounded-xl hover:bg-orange-500"
+          className=" py-4 mt-10 mb-10 mx-auto w-1/2 bg-orange-400 text-white text-lg rounded-xl hover:bg-orange-500"
           type="submit"
         >
           Submit
