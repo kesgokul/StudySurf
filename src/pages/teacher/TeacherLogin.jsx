@@ -1,6 +1,6 @@
 import googleIcon from "/google-icon.jpeg";
 import fakeLogo from "/Ellipse.png";
-import Layout from "../components/Layout";
+import Layout from "../../components/layout/Layout";
 
 import { useAuth, Auth } from "@arcana/auth-react";
 import { useEffect } from "react";

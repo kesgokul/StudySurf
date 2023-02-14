@@ -1,7 +1,7 @@
 import teacherImage from "/teacher.png";
 import studentImage from "/student-image.png";
 import fakeLogo from "/Ellipse.png";
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
