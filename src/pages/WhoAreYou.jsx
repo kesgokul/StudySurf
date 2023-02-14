@@ -1,6 +1,8 @@
 import teacherImage from "/teacher.png";
 import studentImage from "/student-image.png";
 import fakeLogo from "/Ellipse.png";
+import Layout from "../components/Layout";
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +13,7 @@ const cardAnimate = {
 function WhoAreYou() {
   const navigate = useNavigate();
   return (
-    <div className="w-screen h-screen bg-gradient-to-br from-white to-rose-100 flex flex-col justify-between items-center">
+    <Layout transition={{ opacity: { duration: 1 } }}>
       <img className=" mt-10 w-20 h-20" src={fakeLogo} alt="logo" />
       <h2 className=" mt-auto text-xl text-black font-semibold">
         Are you a __________ ?
@@ -40,10 +42,7 @@ function WhoAreYou() {
           <p className="text-2xl font-bold">Student</p>
         </motion.div>
       </div>
-      <p className={"mt-auto text-gray-400"}>
-        ©Splash Screen | All rights reserved
-      </p>
-    </div>
+    </Layout>
   );
 }
 
