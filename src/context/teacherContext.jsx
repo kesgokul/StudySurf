@@ -1,24 +1,30 @@
 import { createContext, useState } from "react";
+import { fakeStudentData } from "../fakeData";
+
+const userObj = {
+  name: "Gokul Sharma",
+  picture: "/hape.png",
+};
 
 const TeacherContext = createContext({
-  userName: "",
+  userData: {},
   classCode: "",
   students: [],
-  setUserName: () => {},
+  setUserData: () => {},
   setClassCode: () => {},
   setStudents: () => {},
 });
 
 export function TeacherContextProvider({ children }) {
-  const [userName, setUserName] = useState("");
-  const [classCode, setClassCode] = useState("");
-  const [students, setStudents] = useState([]);
+  const [userData, setUserData] = useState(userObj);
+  const [classCode, setClassCode] = useState("CHEMII2023D");
+  const [students, setStudents] = useState(fakeStudentData);
 
   const value = {
-    userName,
+    userData,
     classCode,
     students,
-    setUserName,
+    setUserData,
     setClassCode,
     setStudents,
   };

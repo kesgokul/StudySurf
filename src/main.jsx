@@ -6,6 +6,7 @@ import { AuthProvider } from "@arcana/auth";
 import { ProvideAuth } from "@arcana/auth-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TeacherContextProvider } from "./context/teacherContext";
+import { Worker } from "@react-pdf-viewer/core";
 
 import WhoAreYou from "./pages/WhoAreYou";
 import Login from "./pages/Login";
@@ -13,7 +14,8 @@ import TeacherRegister from "./pages/teacher/TeacherRegister";
 import StudentRegister from "./pages//student/StudentRegister";
 import SelectClass from "./pages/teacher/SelectClass";
 import ClassSuccess from "./pages/teacher/ClassSuccess";
-import Dashboard from "./pages/teacher/Dashboard";
+import Dashboard from "./pages/teacher/dashboard/Dashboard";
+import Submissions from "./pages/teacher/dashboard/Submissions";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/teacher/dashboard",
-        element: <Dashboard />,
+        children: [
+          {
+            path: "/teacher/dashboard",
+            index: true,
+            element: <Dashboard />,
+          },
+          {
+            path: "/teacher/dashboard/submissions",
+            element: <Submissions />,
+          },
+        ],
       },
     ],
   },
@@ -75,7 +87,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ProvideAuth provider={provider}>
       <TeacherContextProvider>
-        <RouterProvider router={router} />
+        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
+          <RouterProvider router={router} />
+        </Worker>
       </TeacherContextProvider>
     </ProvideAuth>
   </React.StrictMode>
