@@ -1,5 +1,5 @@
 import teacherImage from "/teacher.png";
-import studentImage from "/student-image.png";
+import studentImage from "/Man Student.png";
 import fakeLogo from "/Ellipse.png";
 import Layout from "../components/layout/Layout";
 

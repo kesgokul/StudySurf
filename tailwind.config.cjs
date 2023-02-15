@@ -22,6 +22,9 @@ module.exports = {
       fontFamily: {
         righteous: ["Righteous"],
       },
+      fontSize: {
+        "2xs": "0.5rem",
+      },
     },
   },
   plugins: [],
