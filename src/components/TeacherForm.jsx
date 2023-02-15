@@ -8,30 +8,33 @@ const classes = [
   "Computer Science",
 ];
 
-export default function TeacherForm({ name }) {
+export default function TeacherForm({ name, onFormSubmit }) {
   return (
     <Formik
       initialValues={{
         fullName: name,
         teacherId: "",
         contact: "",
-        class: "",
       }}
       validationSchema={Yup.object({
         fullName: Yup.string().required("Please enter your name"),
         teacherId: Yup.string()
           .required("Please enter your Teacher's ID")
           .min(8, "ID should be a minimun of 8 characters"),
-        class: Yup.string()
-          .oneOf([...classes], "Please select a class")
-          .required("Required"),
       })}
       onSubmit={(values, { setSubmiting }) => {
-        console.table(values);
-        setSubmiting(false);
+        // console.log(values);
+        onFormSubmit(values);
+        setSubmiting = false;
       }}
     >
-      <Form className="w-full max-w-md px-4 flex flex-col">
+      <Form
+        // onSubmit={(e) => {
+        //   e.preventDefault();
+        //   console.log("value");
+        // }}
+        className="w-full max-w-md px-4 flex flex-col"
+      >
         <label
           className="mt-4 text-sm text-gray-500 w-full flex bg-white py-2 pl-2"
           htmlFor="fullName"
@@ -44,6 +47,7 @@ export default function TeacherForm({ name }) {
           name="fullName"
           type="text"
         />
+        <ErrorMessage name="fullName" />
         <label
           className="mt-4 text-sm text-gray-500 w-full flex bg-white py-2 pl-2"
           htmlFor="teacherId"
@@ -55,6 +59,7 @@ export default function TeacherForm({ name }) {
           className="py-2 px-2 "
           name="teacherId"
         />
+        <ErrorMessage name="teacherId" />
         <label
           className="mt-4 text-sm text-gray-500 w-full flex bg-white py-2 pl-2"
           htmlFor="contact"
@@ -67,22 +72,12 @@ export default function TeacherForm({ name }) {
           name="contact"
           type="text"
         />
-        <label
-          className="mt-4 text-sm text-gray-500 w-full flex bg-white pt-2 pl-2"
-          htmlFor="class"
-        >
-          Select a class
-        </label>
-        <Field className="py-2 px-2  bg-white" name="class" as="select">
-          {classes.map((c) => {
-            return <option value={c}>{c}</option>;
-          })}
-        </Field>
+
         <button
           className=" py-4 mt-10 mb-10 mx-auto w-1/2 bg-orange-400 text-white text-lg rounded-xl hover:bg-orange-500"
           type="submit"
         >
-          Submit
+          Next
         </button>
       </Form>
     </Formik>

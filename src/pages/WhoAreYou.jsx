@@ -20,7 +20,7 @@ function WhoAreYou() {
       </h2>
       <div className="mt-10 mb-auto flex flex-col items-center gap-6 w-full max-w-md">
         <motion.div
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/teacher")}
           whileHover={cardAnimate}
           whileTap={cardAnimate}
           className=" px-6 py-4 flex items-center gap-6 border-2 bg-purple-100  rounded-2xl w-3/4 max-w-md cursor-pointer"

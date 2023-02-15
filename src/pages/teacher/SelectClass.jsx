@@ -29,9 +29,9 @@ export default function SelectClass() {
   }
 
   return (
-    <RegisterLayout>
+    <RegisterLayout teacher={true}>
       <img
-        className=" w-3/4 max-w-md h-auto"
+        className=" mt-10 w-3/4 max-w-md h-auto"
         src={classroomImage}
         alt="image of classroom"
       />

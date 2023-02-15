@@ -15,8 +15,8 @@ export default function ClassSuccess() {
   }
 
   return (
-    <RegisterLayout>
-      <img className=" w-32" src={successImage} alt="green check mark" />
+    <RegisterLayout teacher={true}>
+      <img className=" mt-10 w-32" src={successImage} alt="green check mark" />
       <h1 className="mb-2 text-2xl text-green-600">Success</h1>
       <p className=" w-3/4 text-xs text-gray-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolor
