@@ -10,5 +10,5 @@ Forgetfully used yarn to install packages and setup the project. So please downl
    - How to map the teacher -> student -> assignment data
 
 =================================================
-Fake data for student info on teacher dashboard
+Problem with pdf viewer installation
 ==================================================
