@@ -4,11 +4,12 @@ import Layout from "../components/layout/Layout";
 
 import { useAuth, Auth } from "@arcana/auth-react";
 import { useEffect } from "react";
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function TeacherLogin() {
   const { isLoggedIn, loginWithLink, user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   //   async function handleLogin() {
   //     console.log("google");
   //     await loginWithSocial("google");
@@ -17,15 +18,16 @@ function TeacherLogin() {
   useEffect(() => {
     if (isLoggedIn) {
       console.log(user);
-      navigate("/registerTeacher");
+      navigate(`${location.pathname}/registerTeacher`);
     }
-  }, [user, isLoggedIn]);
+  }, [user, isLoggedIn, location]);
+
+  console.log(location.pathname);
 
   return (
-    <>
-      <Layout>
-        <img className="my-10 h-20 w-20" src={fakeLogo} alt="logo" />
-        {/* <div
+    <Layout>
+      <img className="my-10 h-20 w-20" src={fakeLogo} alt="logo" />
+      {/* <div
         onClick={handleLogin}
         className="my-auto px-1 rounded-md flex justify-start items-center gap-6 h-14 w-3/5 max-w-md bg-google-blue hover:bg-google-blue-active cursor-pointer"
       >
@@ -38,10 +40,9 @@ function TeacherLogin() {
         </div>
         <p className=" text-white">Sign in with google</p>
       </div> */}
-        <Auth externalWallet={true} theme="light" />
-        {/* <Outlet /> */}
-      </Layout>
-    </>
+      <Auth externalWallet={true} theme="light" />
+      {/* <Outlet /> */}
+    </Layout>
   );
 }
 

@@ -15,6 +15,10 @@ module.exports = {
         "button-yellow": "#EDE280",
         "button-text-green": "#075300",
       },
+      backgroundImage: {
+        "card-gradient":
+          "linear-gradient(180deg, rgba(254, 223, 184, 0.36) 0%, rgba(255, 146, 7, 0) 100%)",
+      },
       fontFamily: {
         righteous: ["Righteous"],
       },

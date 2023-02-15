@@ -7,7 +7,7 @@ export default function Layout(props) {
       animate={{ opacity: 1 }}
       className="w-screen h-auto min-h-screen bg-gradient-to-br from-white to-rose-100 flex flex-col justify-between items-center"
     >
-      {...props.children}
+      {props.children}
       <p className={"mt-auto text-gray-400"}>
         ©Splash Screen | All rights reserved
       </p>

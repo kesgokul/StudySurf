@@ -24,7 +24,7 @@ export function TeacherContextProvider({ children }) {
   };
 
   return (
-    <TeacherContext.Provider value={""}>{children}</TeacherContext.Provider>
+    <TeacherContext.Provider value={value}>{children}</TeacherContext.Provider>
   );
 }
 

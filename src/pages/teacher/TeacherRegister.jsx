@@ -12,6 +12,10 @@ export default function TeacherRegister() {
   // const { user, isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
+  function handleFormSubmit(data) {
+    console.log(data);
+  }
+
   // useEffect(() => {
   //   if (!isLoggedIn) {
   //     navigate("/login");
@@ -19,9 +23,9 @@ export default function TeacherRegister() {
   // }, [isLoggedIn, user]);
 
   return (
-    <RegisterLayout>
+    <RegisterLayout teacher={true}>
       <h2 className="mt-10 text-2xl font-semibold">Add you details</h2>
-      <TeacherForm name={"gokul"} />
+      <TeacherForm onFormSubmit={handleFormSubmit} name={"gokul"} />
     </RegisterLayout>
   );
 }
