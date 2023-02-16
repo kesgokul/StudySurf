@@ -15,6 +15,8 @@ import SelectClass from "./pages/teacher/SelectClass";
 import ClassSuccess from "./pages/teacher/ClassSuccess";
 import Dashboard from "./pages/teacher/dashboard/Dashboard";
 import Submissions from "./pages/teacher/dashboard/Submissions";
+import StudentSelectClass from "./pages/student/StudentSelectClass";
+import StudentDashboard from "./pages/student/StudentDashboard";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +77,14 @@ const router = createBrowserRouter([
       {
         path: "/student/registerStudent",
         element: <StudentRegister />,
+      },
+      {
+        path: "/student/select-class",
+        element: <StudentSelectClass />,
+      },
+      {
+        path: "/student/dashboard",
+        element: <StudentDashboard />,
       },
     ],
   },
