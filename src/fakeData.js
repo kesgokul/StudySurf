@@ -187,3 +187,33 @@ export const fakeSubbmissions = [
     plagScore: 20,
   },
 ];
+
+export const premiumPlans = [
+  {
+    name: "Basic",
+    price: 0.0,
+    features: [
+      "Unlimited SignUps",
+      "1:1 comparisons only",
+      "512MB Cloud Storage",
+    ],
+  },
+  {
+    name: "Standard",
+    price: 0.01,
+    features: [
+      "All features in Basic",
+      "Upto 25 Comparisons",
+      "30GB Cloud Storage",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: 0.07,
+    features: [
+      "All features in Standard",
+      "Superfast ML processing",
+      "Unlimited Cloud Storage",
+    ],
+  },
+];

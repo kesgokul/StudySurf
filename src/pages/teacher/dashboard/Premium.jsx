@@ -2,11 +2,13 @@ import DashLayout from "../../../components/layout/DashLayout";
 import TeacherIcon from "../../../components/icons/TeacherIcon";
 import TeacherContext from "../../../context/teacherContext";
 import ProfilePic from "../../../components/icons/ProfilePic";
+import PremiumPlanCard from "../../../components/cards/PremiumPlanCard";
 
 import { BsStars } from "react-icons/bs";
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { GrMail } from "react-icons/gr";
 import { useContext, useState } from "react";
+import { premiumPlans } from "../../../fakeData";
 
 export default function Premium() {
   const [yearlyPlan, setYearlyPlan] = useState(false);
@@ -64,6 +66,18 @@ export default function Premium() {
                 Yearly
               </button>
             </div>
+          </article>
+          <article className="mb-32 px-10 w-full overflow-x-scroll grid grid-flow-col gap-20">
+            {premiumPlans.map((p) => {
+              return (
+                <PremiumPlanCard
+                  key={p.price}
+                  name={p.name}
+                  features={p.features}
+                  price={p.price}
+                />
+              );
+            })}
           </article>
         </section>
       </main>

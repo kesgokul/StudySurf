@@ -15,6 +15,10 @@ import SelectClass from "./pages/teacher/SelectClass";
 import ClassSuccess from "./pages/teacher/ClassSuccess";
 import Dashboard from "./pages/teacher/dashboard/Dashboard";
 import Submissions from "./pages/teacher/dashboard/Submissions";
+import Profile from "./pages/teacher/dashboard/Profile";
+import Premium from "./pages/teacher/dashboard/Premium";
+import StudentSelectClass from "./pages/student/StudentSelectClass";
+import StudentDashboard from "./pages/student/StudentDashboard";
 
 const router = createBrowserRouter([
   {
