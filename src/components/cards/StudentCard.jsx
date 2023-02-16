@@ -2,22 +2,11 @@ import ProfilePic from "../icons/ProfilePic";
 import { MdOutlineExpandMore, MdOutlineExpandLess } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { formatDate } from "../../utils/helperFuncitons";
 
 export default function StudentCard({ name, picture, assignments }) {
   const [expanded, setExpanded] = useState(false);
   const [assignmentDue, setAssignmentDue] = useState(false);
-
-  function formatDate(date) {
-    return [date.getDate(), date.getMonth(), date.getFullYear()].join("/");
-  }
-  // function checkAssignmentDue() {
-  //   const due = assignments.forEach((a) => {
-  //     if (!a.submitted) {
-  //       return true;
-  //     }
-  //   });
-  //   re
-  // }
 
   useEffect(() => {
     const due = assignments.some((a) => !a.submitted);

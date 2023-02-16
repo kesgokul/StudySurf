@@ -18,12 +18,17 @@ module.exports = {
       backgroundImage: {
         "card-gradient":
           "linear-gradient(180deg, rgba(254, 223, 184, 0.36) 0%, rgba(255, 146, 7, 0) 100%)",
+        "card-gradient-1":
+          "linear-gradient(180deg, rgba(254, 194, 184, 0.56) 0%, rgba(255, 169, 91, 0.09) 52.6%, rgba(180, 136, 79, 0.2) 100%)",
       },
       fontFamily: {
         righteous: ["Righteous"],
       },
       fontSize: {
         "2xs": "0.5rem",
+      },
+      blur: {
+        "2xs": "0.5px",
       },
     },
   },

@@ -6,7 +6,6 @@ import { AuthProvider } from "@arcana/auth";
 import { ProvideAuth } from "@arcana/auth-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TeacherContextProvider } from "./context/teacherContext";
-import { Worker } from "@react-pdf-viewer/core";
 
 import WhoAreYou from "./pages/WhoAreYou";
 import Login from "./pages/Login";
@@ -87,9 +86,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ProvideAuth provider={provider}>
       <TeacherContextProvider>
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
-          <RouterProvider router={router} />
-        </Worker>
+        <RouterProvider router={router} />
       </TeacherContextProvider>
     </ProvideAuth>
   </React.StrictMode>
