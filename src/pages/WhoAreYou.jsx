@@ -37,7 +37,7 @@ function WhoAreYou() {
           className=" px-6 py-4 flex items-center gap-6 border-2 bg-green-100  rounded-2xl w-3/4 max-w-md cursor-pointer"
         >
           <div className="p-4 bg-green-300 rounded-2xl">
-            <img src={studentImage} alt="image of a teacher" />
+            <img src={studentImage} alt="image of a student" />
           </div>
           <p className="text-2xl font-bold">Student</p>
         </motion.div>
