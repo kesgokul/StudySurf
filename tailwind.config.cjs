@@ -28,6 +28,7 @@ module.exports = {
         "2xs": "0.5rem",
       },
       blur: {
+        xs: "1px",
         "2xs": "0.5px",
       },
     },

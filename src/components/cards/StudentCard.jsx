@@ -1,7 +1,7 @@
 import ProfilePic from "../icons/ProfilePic";
 import { MdOutlineExpandMore, MdOutlineExpandLess } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { formatDate } from "../../utils/helperFuncitons";
 
 export default function StudentCard({ name, picture, assignments }) {
@@ -37,38 +37,44 @@ export default function StudentCard({ name, picture, assignments }) {
           />
         )}
       </div>
-      {expanded && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            y: [10, 0],
-          }}
-        >
-          {assignments?.map((a) => {
-            return (
-              <div
-                key={a.name}
-                className="px-2 pt-2 flex justify-between items-center"
-              >
-                <p className="text-sm text-gray-500">{a.name}</p>
-                <p
-                  className={`text-xs flex items centers ${
-                    a.submitted ? "text-green-500" : "text-red-500"
-                  }`}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              y: [10, 0],
+            }}
+            exit={{
+              opacity: 0,
+              y: [0, -10],
+            }}
+          >
+            {assignments?.map((a) => {
+              return (
+                <div
+                  key={a.name}
+                  className="px-2 pt-2 flex justify-between items-center"
                 >
-                  {!a.submitted && (
-                    <span className="px-1 mr-1 text-2xs border border-red-500 text-red-500">
-                      due
-                    </span>
-                  )}
-                  {formatDate(a.deadline)}
-                </p>
-              </div>
-            );
-          })}
-        </motion.div>
-      )}
+                  <p className="text-sm text-gray-500">{a.name}</p>
+                  <p
+                    className={`text-xs flex items centers ${
+                      a.submitted ? "text-green-500" : "text-red-500"
+                    }`}
+                  >
+                    {!a.submitted && (
+                      <span className="px-1 mr-1 text-2xs border border-red-500 text-red-500">
+                        due
+                      </span>
+                    )}
+                    {formatDate(a.deadline)}
+                  </p>
+                </div>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

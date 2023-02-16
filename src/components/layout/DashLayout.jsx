@@ -24,7 +24,7 @@ export default function DashLayout(props) {
         <ProfilePic teacher={props.teacher ? true : false} />
       </div>
       {props.children}
-      <div className=" h-14 w-full flex justify-around items-center bg-white">
+      <div className=" h-14 w-full flex justify-around items-center bg-white fixed bottom-0">
         <BsGridFill size={"30px"} color="orange" />
         <BiClipboard color="orange" size="30px" />
         <BiUserPin size="30px" color="orange" />

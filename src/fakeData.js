@@ -12,6 +12,8 @@ export const fakeStudentData = [
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 44,
           },
           {
             name: "Atomic Bonding (P2)",
@@ -29,6 +31,8 @@ export const fakeStudentData = [
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 56,
           },
           {
             name: "Newton's laws (pre)",
@@ -53,12 +57,16 @@ export const fakeStudentData = [
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 76,
           },
           {
             name: "Atomic Bonding (P2)",
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 12,
           },
         ],
       },
@@ -66,13 +74,15 @@ export const fakeStudentData = [
         classCode: "BIOI2023A",
         assignments: [
           {
-            name: "Organic Chemistry (REV)",
+            name: "Human anatomy (II)",
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 54,
           },
           {
-            name: "Atomic Bonding (P2)",
+            name: "Vaccines history (P2)",
             deadline: new Date(),
             submitted: false,
             file: "",
@@ -94,6 +104,8 @@ export const fakeStudentData = [
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 22,
           },
           {
             name: "Atomic Bonding (P2)",
@@ -111,6 +123,8 @@ export const fakeStudentData = [
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 68,
           },
           {
             name: "Newton's laws (pre)",
@@ -135,6 +149,8 @@ export const fakeStudentData = [
             deadline: new Date(),
             submitted: true,
             file: "/fake-thumbnail.png",
+            date: new Date(),
+            plagScore: 16,
           },
           {
             name: "Atomic Bonding (P2)",
