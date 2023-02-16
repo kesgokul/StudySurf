@@ -1,23 +1,23 @@
 import DashLayout from "../../../components/layout/DashLayout";
 import TeacherCard from "../../../components/cards/TeacherCard";
+import StudentCard from "../../../components/cards/StudentCard";
 
 import TeacherContext from "../../../context/teacherContext";
 import { useContext } from "react";
-
-import StudentCard from "../../../components/cards/StudentCard";
+import { getStudentAssignments } from "../../../utils/helperFuncitons";
 
 export default function Dashboard() {
   const teacherContext = useContext(TeacherContext);
   const { students, classCode, userData } = teacherContext;
 
-  function getStudentAssignments(student) {
-    const course = student.classes.find((c) => c.classCode === classCode);
-    if (!course) {
-      return null;
-    }
+  // function getStudentAssignments(student) {
+  //   const course = student.classes.find((c) => c.classCode === classCode);
+  //   if (!course) {
+  //     return null;
+  //   }
 
-    return course.assignments;
-  }
+  //   return course.assignments;
+  // }
 
   return (
     <DashLayout>
@@ -31,7 +31,7 @@ export default function Dashboard() {
               key={s.studentId}
               name={s.name}
               picture={s.picture}
-              assignments={getStudentAssignments(s)}
+              assignments={getStudentAssignments(s, classCode)}
             />
           );
         })}
