@@ -16,7 +16,7 @@ export default function Premium() {
   const { userData, classCode } = teacherContext;
   return (
     <DashLayout>
-      <main className=" mt-10 w-full h-full  bg-black rounded-t-xl">
+      <main className=" mt-10 pt-4 w-full h-full  bg-black rounded-t-xl">
         <div className="p-4  flex items-center gap-4">
           <h2 className="text-xl font-bold text-transparent bg-gold-gradient bg-clip-text bg-lg bg-right-bottom">
             Premium
@@ -28,14 +28,14 @@ export default function Premium() {
         <section className=" h-full bg-green-gradient rounded-t-xl">
           <div className=" p-4 flex items-center gap-2 ">
             <ProfilePic picture={userData.picture} />
-            <h2 className="text-xl font-bold text-white">{userData.name}</h2>
+            <h2 className="text-2xl font-bold text-white">{userData.name}</h2>
             <p className="ml-auto bg-white text-red-500 text-2xs p-0.5 border border-red-500">
               {classCode}
             </p>
           </div>
           <div className="pb-10 flex justify-center items-center gap-4 border-b border-white">
             <GrMail size="15px" color="gray" />
-            <p className="text-sm text-white">{userData.email}</p>
+            <p className="text-sm text-gray-200">{userData.email}</p>
           </div>
           <article className="mt-8 flex flex-col items-center">
             <h2 className=" gap-2 uppercase text-xl text-white">
@@ -67,7 +67,7 @@ export default function Premium() {
               </button>
             </div>
           </article>
-          <article className="mb-32 px-10 w-full overflow-x-scroll grid grid-flow-col gap-20">
+          <article className="mb-32 px-10 w-full overflow-x-scroll snap-x grid grid-flow-col gap-20">
             {premiumPlans.map((p) => {
               return (
                 <PremiumPlanCard

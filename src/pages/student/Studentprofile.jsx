@@ -1,48 +1,47 @@
-import DashLayout from "../../../components/layout/DashLayout";
-import TeacherIcon from "../../../components/icons/TeacherIcon";
-import TeacherContext from "../../../context/teacherContext";
-import ProfilePic from "../../../components/icons/ProfilePic";
-import ButtonCard from "../../../components/cards/ButtonCard";
-import ProfileInfoCard from "../../../components/cards/ProfileInfoCard";
+import DashLayout from "../../components/layout/DashLayout";
+import StudentIcon from "../../components/icons/StudentIcon";
+import ProfileInfoCard from "../../components/cards/ProfileInfoCard";
+import TeacherContext from "../../context/teacherContext";
+import ButtonCard from "../../components/cards/ButtonCard";
 
-import { FaUserEdit } from "react-icons/fa";
-import { useContext } from "react";
+import { FaUserEdit, FaCrown } from "react-icons/fa";
+import { HiQuestionMarkCircle } from "react-icons/hi";
+import { GiVibratingBall } from "react-icons/gi";
 import { BsBookmarkFill } from "react-icons/bs";
 import { RiLogoutCircleRLine } from "react-icons/ri";
-import { FaCrown } from "react-icons/fa";
-import { GiVibratingBall } from "react-icons/gi";
+import { useContext } from "react";
 
-export default function Profile() {
+export default function StudentProfile() {
   const teacherContext = useContext(TeacherContext);
-  const { userData, classCode } = teacherContext;
+  const { students } = teacherContext;
+  const studentData = {
+    name: students[0].name,
+    email: students[0].email,
+    id: students[0].studentId,
+    contact: students[0].contact,
+  };
   return (
     <DashLayout>
       <main className="my-10 bg-card-gradient w-full h-full rounded-t-xl">
-        <div className=" p-4 flex items-center gap-2">
+        <div className=" py-4 px-6 flex items-center gap-2">
           <h2 className="text-xl font-bold text-violet-800">Profile</h2>
-          <TeacherIcon />
+          <StudentIcon />
           <FaUserEdit
             className="ml-auto"
             size={"25px"}
             color="gray"
             cursor="pointer"
           />
+          <HiQuestionMarkCircle size={"25px"} color="#434343" />
         </div>
-        <ProfileInfoCard
-          name={userData.name}
-          picture={userData.picture}
-          id={userData.teacherId}
-          email={userData.email}
-          contact={userData.contact}
-          classCode={classCode}
-        />
+        <ProfileInfoCard {...studentData} classCode={null} />
         <div className="px-4 pt-10 bg-card-gradient rounded-t-xl">
-          <ButtonCard styles="bg-gold-gradient  bg-lg bg-left-top">
+          {/* <ButtonCard styles="bg-gold-gradient  bg-lg bg-left-top">
             <p className="text-red-500 text-2xl font-semibold">Premium</p>
             <figure className="p-1.5 border-2 border-red-500 bg-white rounded-full">
               <FaCrown size={"20px"} color="red" />
             </figure>
-          </ButtonCard>
+          </ButtonCard> */}
           <ButtonCard styles=" bg-input-orange">
             <p className="text-white text-2xl font-semibold">Push Alerts</p>
             <GiVibratingBall size={"25px"} color="white" />

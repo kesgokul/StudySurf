@@ -4,8 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import StudentIcon from "../../../components/icons/StudentIcon";
 import { SlRefresh } from "react-icons/sl";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
-
-import { fakeSubbmissions } from "../../../fakeData";
+import { useNavigate } from "react-router-dom";
 
 import DashLayout from "../../../components/layout/DashLayout";
 import TeacherContext from "../../../context/teacherContext";
@@ -15,6 +14,7 @@ export default function Submissions() {
   const teacherContext = useContext(TeacherContext);
   const { classCode, students } = teacherContext;
   const [submissions, setSubmissions] = useState([]);
+  const navigate = useNavigate();
 
   // Filtering the assignment submissions from the student data
   useEffect(() => {
@@ -50,7 +50,10 @@ export default function Submissions() {
           return <SubmissionCard key={sub.studentId + sub.name} {...sub} />;
         })}
       </section>
-      <button className="bg-gold-gradient bg-lg bg-left-top px-3 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  ">
+      <button
+        onClick={() => navigate("/teacher/profile/premium")}
+        className="bg-gold-gradient bg-lg bg-left-top px-3 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  "
+      >
         Get Premium
       </button>
     </DashLayout>

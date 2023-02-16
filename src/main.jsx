@@ -19,6 +19,7 @@ import Profile from "./pages/teacher/dashboard/Profile";
 import Premium from "./pages/teacher/dashboard/Premium";
 import StudentSelectClass from "./pages/student/StudentSelectClass";
 import StudentDashboard from "./pages/student/StudentDashboard";
+import StudentProfile from "./pages/student/Studentprofile";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/student/dashboard",
         element: <StudentDashboard />,
+      },
+      {
+        path: "/student/profile",
+        element: <StudentProfile />,
       },
     ],
   },

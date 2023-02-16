@@ -3,6 +3,8 @@ export const fakeStudentData = [
     name: "Ishaan Malhotra",
     picture: "/SSS/P.3.1.a.jpg",
     studentId: "1",
+    email: "ishaan.m@devfolio.edu",
+    contact: "+91-7348793434",
     classes: [
       {
         classCode: "CHEMII2023D",

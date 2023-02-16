@@ -8,8 +8,32 @@ import { BiClipboard, BiUserPin } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
 
 import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useCallback, useState } from "react";
+
+const navPaths = [
+  "/teacher/dashboard",
+  "/teacher/dashboard/submissions",
+  "/teacher/profile",
+];
 
 export default function DashLayout(props) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activePage, setActivePage] = useState(
+    navPaths.indexOf(location.pathname)
+  );
+
+  console.log(location.pathname);
+
+  const handleNavIconClick = useCallback(
+    (nav) => {
+      setActivePage(nav);
+      navigate(navPaths[nav]);
+    },
+    [navPaths]
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -25,9 +49,25 @@ export default function DashLayout(props) {
       </div>
       {props.children}
       <div className=" h-14 w-full flex justify-around items-center bg-white fixed bottom-0">
-        <BsGridFill size={"30px"} color="orange" />
-        <BiClipboard color="orange" size="30px" />
-        <BiUserPin size="30px" color="orange" />
+        <BsGridFill
+          onClick={() => handleNavIconClick(0)}
+          on
+          size={"30px"}
+          color={`${activePage === 0 ? "orange" : "gray"}`}
+          cursor="pointer"
+        />
+        <BiClipboard
+          onClick={() => handleNavIconClick(1)}
+          color={`${activePage === 1 ? "orange" : "gray"}`}
+          cursor="pointer"
+          size="30px"
+        />
+        <BiUserPin
+          onClick={() => handleNavIconClick(2)}
+          size="30px"
+          color={`${activePage === 2 ? "orange" : "gray"}`}
+          cursor="pointer"
+        />
       </div>
     </motion.div>
   );

@@ -3,7 +3,7 @@ import { AiFillCheckSquare } from "react-icons/ai";
 
 export default function PremiumPlanCard({ name, features, price, billing }) {
   return (
-    <main className=" w-64 px-4 py-8 bg-black border-2 border-white rounded-xl shadow-2xl">
+    <main className=" w-64 px-4 py-8 bg-black border-2 border-white rounded-xl shadow-2xl snap-center">
       <div className="py-2 border-b border-b-white">
         <p className="text-sm py-1 text-gray-400">{name}</p>
         <div className="flex gap-1">
