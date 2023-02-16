@@ -4,6 +4,9 @@ import { fakeStudentData } from "../fakeData";
 const userObj = {
   name: "Gokul Sharma",
   picture: "/hape.png",
+  email: "gokulSharma@devfoliio.edu",
+  contact: "+91-9834982374",
+  teacherId: "23423434",
 };
 
 const TeacherContext = createContext({

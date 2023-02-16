@@ -45,9 +45,14 @@ export default function Submissions() {
         <SlRefresh className="ml-auto" size={"25px"} />
         <HiOutlineMagnifyingGlass size={"25px"} />
       </div>
-      {submissions.map((sub) => {
-        return <SubmissionCard key={sub.studentId + sub.name} {...sub} />;
-      })}
+      <section className="mb-20">
+        {submissions.map((sub) => {
+          return <SubmissionCard key={sub.studentId + sub.name} {...sub} />;
+        })}
+      </section>
+      <button className="bg-gold-gradient bg-lg bg-left-top px-3 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  ">
+        Get Premium
+      </button>
     </DashLayout>
   );
 }

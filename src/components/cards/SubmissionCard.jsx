@@ -41,8 +41,8 @@ export default function SubmissionCard({
   return (
     <main
       ref={ref}
-      className={`w-full py-4 bg-inherit flex justify-center gap-2 blur-lg ${
-        isInView && "blur-0"
+      className={`w-full py-4 bg-inherit flex justify-center gap-2 ${
+        isInView ? "blur-0" : "blur-sm"
       }`}
     >
       <ProfilePic picture={(student && student.picture) || fakeProfilePic} />

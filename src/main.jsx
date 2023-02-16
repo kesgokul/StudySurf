@@ -15,6 +15,8 @@ import SelectClass from "./pages/teacher/SelectClass";
 import ClassSuccess from "./pages/teacher/ClassSuccess";
 import Dashboard from "./pages/teacher/dashboard/Dashboard";
 import Submissions from "./pages/teacher/dashboard/Submissions";
+import Profile from "./pages/teacher/dashboard/Profile";
+import Premium from "./pages/teacher/dashboard/Premium";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,16 @@ const router = createBrowserRouter([
           {
             path: "/teacher/dashboard/submissions",
             element: <Submissions />,
+          },
+        ],
+      },
+      {
+        path: "/teacher/profile",
+        children: [
+          { path: "/teacher/profile", index: true, element: <Profile /> },
+          {
+            path: "/teacher/profile/premium",
+            element: <Premium />,
           },
         ],
       },
