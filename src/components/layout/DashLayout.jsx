@@ -24,8 +24,6 @@ export default function DashLayout(props) {
     navPaths.indexOf(location.pathname)
   );
 
-  console.log(location.pathname);
-
   const handleNavIconClick = useCallback(
     (nav) => {
       setActivePage(nav);

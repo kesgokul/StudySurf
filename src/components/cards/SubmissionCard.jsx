@@ -11,6 +11,7 @@ import fakeProfilePic from "/profile-pic.png";
 import fakeThumbnail from "/fake-thumbnail.png";
 import AssesmentDetails from "../AssesmentDetails";
 import NotificationIcon from "../icons/NotificaitonIcon";
+import FileCard from "./FileCard";
 
 export default function SubmissionCard({
   studentId,
@@ -47,30 +48,7 @@ export default function SubmissionCard({
     >
       <ProfilePic picture={(student && student.picture) || fakeProfilePic} />
       <aside className="w-4/5 max-w-md bg-inherit">
-        <div className="w-full px-2 bg-card-gradient-1 rounded-b-xl underline-offset-2 relative isolate">
-          <BsPatchCheckFill
-            className="absolute top-0 right-0 translate-x-2 -translate-y-2 bg-green"
-            color="rgb(34, 197, 94)"
-            size="30px"
-          />
-          <div className="flex gap-1 items-center">
-            <IoMdCheckmarkCircle size={"20px"} color="green" />
-            <p className="text-sm  py-1 underline ">{name}</p>
-          </div>
-          <time className=" ml-6 text-2xs pb-1">{`Submission date: ${formatDate(
-            date
-          )}`}</time>
-          <figure className="w-4/5 mt-2 mx-auto relative isolate ">
-            <img
-              className="w-full rounded-t-xl blur-2xs"
-              src={file}
-              alt="thumbnail of the assignment file"
-            />
-            <button className=" px-3 py-1.5 absolute bottom-6 left-1/2 -translate-x-1/2 bg-input-orange text-white rounded-2xl">
-              Tap to open
-            </button>
-          </figure>
-        </div>
+        <FileCard name={name} file={file} date={date} />
         <section>
           <AssesmentDetails plagScore={plagScore} />
         </section>
