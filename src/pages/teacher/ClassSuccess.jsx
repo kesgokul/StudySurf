@@ -1,4 +1,5 @@
-import successImage from "/success.png";
+import bgSuccess from '../../../public/bg-success.png';
+import successImage from "../../../public/success-tick.png";
 import RegisterLayout from "../../components/layout/RegisterLayout";
 import {
   HiOutlineClipboardDocument,
@@ -14,10 +15,36 @@ export default function ClassSuccess() {
     await navigator.clipboard.write("Code");
   }
 
+
+  // Style for the success tick
+  const myStyle = {
+    backgroundImage: `url(${bgSuccess})`,
+    width: "347px",
+    height: "341px",
+    left: "18px",
+    top: "82px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  }
+
+  const tickStyle = {
+    position: "absolute",
+    width: "180px",
+    height: "233px",
+    left: "1000px",
+    top: "158px"
+  }
+
   return (
+
+
     <RegisterLayout teacher={true}>
-      <img className=" mt-10 w-32" src={successImage} alt="green check mark" />
-      <h1 className="mb-2 text-2xl text-green-600">Success</h1>
+      <div style={myStyle}>
+        <img className=" mt-10 w-32" src={successImage}alt="green check mark" />
+      </div>
+       
+      <h1 className='text-xl text-green-600'>Success</h1>
       <p className=" w-3/4 text-xs text-gray-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolor
         incidunt fugit deserunt atque culpa id ratione suscipit quis illo!
