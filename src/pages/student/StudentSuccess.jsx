@@ -38,7 +38,7 @@ export default function success() {
       <p className='text-xs text-gray-500 px-5 text-center my-4' >You've successfully enrolled into the class</p>
 
       <button
-        className=" py-4 mt-20 mx-auto w-1/2 font-bold bg-amber-300 text-green-600 text-lg rounded-xl hover:bg-green-500"
+        className=" py-4 mt-20 mx-auto w-1/2 font-bold bg-button-yellow text-green-600 text-lg rounded-xl hover:bg-green-500"
       >
         PROCEED
       </button>

@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     errorElement: <div>Something Unexpected happened</div>,
   },
   {
-    path: "/whoAreYou",
+    path: "/who-are-you",
     element: <WhoAreYou />,
   },
   // -------------------------- TEACHER ---------------------------------
@@ -45,15 +45,15 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/teacher/registerTeacher",
+        path: "/teacher/register",
         element: <TeacherRegister />,
       },
       {
-        path: "/teacher/selectClass",
+        path: "/teacher/select-class",
         element: <SelectClass />,
       },
       {
-        path: "/teacher/selectClass/success",
+        path: "/teacher/select-class/success",
         element: <ClassSuccess />,
       },
       {
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/student/registerStudent",
+        path: "/student/register",
         element: <StudentRegister />,
       },
       {
