@@ -15,6 +15,7 @@ import SelectClass from "./pages/teacher/SelectClass";
 import ClassSuccess from "./pages/teacher/ClassSuccess";
 import Dashboard from "./pages/teacher/dashboard/Dashboard";
 import Submissions from "./pages/teacher/dashboard/Submissions";
+
 import Profile from "./pages/teacher/dashboard/Profile";
 import Premium from "./pages/teacher/dashboard/Premium";
 
@@ -22,6 +23,7 @@ import Premium from "./pages/teacher/dashboard/Premium";
 import StudentSelectClass from "./pages/student/StudentSelectClass";
 import StudentSuccess from "./pages/student/StudentSuccess";
 import StudentDashboard from "./pages/student/StudentDashboard";
+
 import StudentProfile from "./pages/student/Studentprofile";
 import StudentAssignmetns from "./pages/student/StudentAssignments";
 
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
     errorElement: <div>Something Unexpected happened</div>,
   },
   {
-    path: "/whoAreYou",
+    path: "/who-are-you",
     element: <WhoAreYou />,
   },
   // -------------------------- TEACHER ---------------------------------
@@ -45,15 +47,15 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/teacher/registerTeacher",
+        path: "/teacher/register",
         element: <TeacherRegister />,
       },
       {
-        path: "/teacher/selectClass",
+        path: "/teacher/select-class",
         element: <SelectClass />,
       },
       {
-        path: "/teacher/selectClass/success",
+        path: "/teacher/select-class/success",
         element: <ClassSuccess />,
       },
       {
@@ -70,6 +72,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+
       {
         path: "/teacher/profile",
         children: [
@@ -92,7 +95,7 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/student/registerStudent",
+        path: "/student/register",
         element: <StudentRegister />,
       },
       {
@@ -101,7 +104,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/success",
-        element: <StudentSuccess />,
+        element: <StudentSuccess />
+
       },
       {
         path: "/student/dashboard",

@@ -1,5 +1,6 @@
 import teacherIcon from "/teacher.png";
 
+
 export default function TeacherIcon({ styles }) {
   return (
     <img

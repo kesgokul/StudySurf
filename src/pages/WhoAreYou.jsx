@@ -2,6 +2,7 @@ import teacherImage from "/teacher.png";
 import studentImage from "/Man Student.png";
 import fakeLogo from "/Ellipse.png";
 import Layout from "../components/layout/Layout";
+
 import StudentIcon from "../components/icons/StudentIcon";
 import TeacherIcon from "../components/icons/TeacherIcon";
 
@@ -39,6 +40,7 @@ function WhoAreYou() {
           className=" px-6 py-4 flex items-center gap-6 border-2 bg-green-100  rounded-2xl w-3/4 max-w-md cursor-pointer"
         >
           <div className="p-4 bg-green-300 rounded-2xl">
+
             <StudentIcon styles={"w-8 h-8"} />
           </div>
           <p className="text-2xl font-bold">Student</p>

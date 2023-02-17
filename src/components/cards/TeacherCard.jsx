@@ -2,6 +2,7 @@ import TeacherIcon from "../icons/TeacherIcon";
 import StudentIcon from "../icons/StudentIcon";
 import ProfilePic from "../icons/ProfilePic";
 
+
 import { RiUserAddFill } from "react-icons/ri";
 
 export default function TeacherCard({ name, picture }) {

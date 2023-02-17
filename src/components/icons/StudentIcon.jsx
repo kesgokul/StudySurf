@@ -1,5 +1,6 @@
 import studentIcon from "/Man Student.png";
 
+
 export default function StudentIcon({ styles }) {
   return (
     <img

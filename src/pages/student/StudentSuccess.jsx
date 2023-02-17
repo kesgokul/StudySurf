@@ -1,3 +1,4 @@
+
 import React from "react";
 import RegisterLayout from "../../components/layout/RegisterLayout";
 import bgSuccess from "/bg-success.png";
@@ -21,23 +22,24 @@ export default function success() {
     width: "180px",
     height: "233px",
     left: "1000px",
-    top: "158px",
-  };
+    top: "158px"
+  }
 
   return (
-    <RegisterLayout>
+    <RegisterLayout >
       <div style={myStyle}>
         <img src={successTick} />
       </div>
-      <TeacherIcon />
-      <h1 className="text-xl text-green-600">Success</h1>
-      <p className="text-xs text-gray-500 px-5 text-center my-4">
-        You've successfully enrolled into the class
-      </p>
+      <TeacherIcon/>
+      <h1 className='text-xl text-green-600'>Success</h1>
+      <p className='text-xs text-gray-500 px-5 text-center my-4' >You've successfully enrolled into the class</p>
 
-      <button className=" py-4 mt-20 mx-auto w-1/2 font-bold bg-amber-300 text-green-600 text-lg rounded-xl hover:bg-green-500">
+      <button
+        className=" py-4 mt-20 mx-auto w-1/2 font-bold bg-button-yellow text-green-600 text-lg rounded-xl hover:bg-green-500"
+      >
         PROCEED
       </button>
     </RegisterLayout>
-  );
+  )
+
 }

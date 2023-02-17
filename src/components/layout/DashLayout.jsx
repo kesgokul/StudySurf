@@ -8,6 +8,7 @@ import { BiClipboard, BiUserPin } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
 
 import { motion } from "framer-motion";
+
 import { useNavigate, useLocation } from "react-router-dom";
 import { useCallback, useState } from "react";
 
@@ -36,6 +37,7 @@ export default function DashLayout(props) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+
       className="w-screen h-auto min-h-screen max-w-xl bg-gradient-to-br from-white to-rose-100 flex flex-col items-center relative "
     >
       <div className=" mt-10 px-4 w-full flex justify-between items-center">
@@ -46,6 +48,7 @@ export default function DashLayout(props) {
         <ProfilePic teacher={props.teacher ? true : false} />
       </div>
       {props.children}
+
       <div className=" mx-auto h-14 w-full max-w-xl flex justify-around items-center bg-white fixed bottom-0">
         <BsGridFill
           onClick={() => handleNavIconClick(0)}

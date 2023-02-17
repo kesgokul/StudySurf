@@ -1,6 +1,7 @@
 import googleIcon from "/google-icon.jpeg";
 import fakeLogo from "/Ellipse.png";
 import Layout from "../components/layout/Layout";
+
 import TeacherContext from "../context/teacherContext";
 
 import { useAuth, Auth } from "@arcana/auth-react";
@@ -11,6 +12,7 @@ function TeacherLogin() {
   const { isLoggedIn, loginWithLink, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
   const {} = useContext(TeacherContext);
 
   //   async function handleLogin() {

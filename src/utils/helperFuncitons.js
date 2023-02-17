@@ -16,6 +16,7 @@ export function formatDate(date) {
   return [date.getDate(), date.getMonth(), date.getFullYear()].join("/");
 }
 
+
 export function getAllAssignments(classes) {
   return classes.flatMap((c) => c.assignments);
 }
