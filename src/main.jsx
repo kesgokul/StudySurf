@@ -17,7 +17,10 @@ import Dashboard from "./pages/teacher/dashboard/Dashboard";
 import Submissions from "./pages/teacher/dashboard/Submissions";
 import Profile from "./pages/teacher/dashboard/Profile";
 import Premium from "./pages/teacher/dashboard/Premium";
+
+// Student components
 import StudentSelectClass from "./pages/student/StudentSelectClass";
+import StudentSuccess from "./pages/student/StudentSuccess";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import StudentProfile from "./pages/student/Studentprofile";
 import StudentAssignmetns from "./pages/student/StudentAssignments";
@@ -95,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/student/select-class",
         element: <StudentSelectClass />,
+      },
+      {
+        path: "/student/success",
+        element: <StudentSuccess />,
       },
       {
         path: "/student/dashboard",
