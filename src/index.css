@@ -32,8 +32,11 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 350px;
   background: whitesmoke;
+  display: grid;
+  place-items: center;
   /* color: black; */
 }
 

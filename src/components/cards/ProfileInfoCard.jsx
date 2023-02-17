@@ -13,7 +13,7 @@ export default function ProfileInfoCard({
   classCode,
 }) {
   return (
-    <main className="w-full p-4 rounded-t-xl bg-card-gradient-1 border-b border-b-white">
+    <main className="w-full py-4  rounded-t-xl bg-card-gradient-1  ">
       <div className=" px-4 py-2 flex items-center gap-3">
         <ProfilePic picture={picture} />
         <h2 className="text-2xl font-bold">{name}</h2>
@@ -23,7 +23,7 @@ export default function ProfileInfoCard({
           </p>
         )}
       </div>
-      <article className="ml-14 flex flex-col items-start gap-1">
+      <article className="ml-14 flex flex-col items-start gap-1 ">
         <div className="flex items-center gap-4">
           <BsPhoneFill size="15px" color="gray" />
           <p className="text-sm text-gray-500">{contact}</p>

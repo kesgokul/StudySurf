@@ -20,6 +20,7 @@ import Premium from "./pages/teacher/dashboard/Premium";
 import StudentSelectClass from "./pages/student/StudentSelectClass";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import StudentProfile from "./pages/student/Studentprofile";
+import StudentAssignmetns from "./pages/student/StudentAssignments";
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "/student/profile",
         element: <StudentProfile />,
+      },
+      {
+        path: "/student/assignments",
+        element: <StudentAssignmetns />,
       },
     ],
   },

@@ -5,6 +5,7 @@ import StudentIcon from "../../../components/icons/StudentIcon";
 import { SlRefresh } from "react-icons/sl";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
+import { getAllAssignments } from "../../../utils/helperFuncitons";
 
 import DashLayout from "../../../components/layout/DashLayout";
 import TeacherContext from "../../../context/teacherContext";
@@ -19,8 +20,8 @@ export default function Submissions() {
   // Filtering the assignment submissions from the student data
   useEffect(() => {
     const allAssignments = students.flatMap((s) => {
-      const allStudentAssignments = s.classes
-        .flatMap((c) => c.assignments)
+      const allStudentAssignments = getAllAssignments(s.classes);
+      const filteredAssignments = allStudentAssignments
         .filter((a) => a.submitted)
         .map((a) => {
           return {
@@ -28,7 +29,8 @@ export default function Submissions() {
             ...a,
           };
         });
-      return allStudentAssignments;
+
+      return filteredAssignments;
     });
 
     //setting the sumbissions state
@@ -39,7 +41,7 @@ export default function Submissions() {
 
   return (
     <DashLayout>
-      <div className="w-full h-full mt-4 p-4 bg-white flex items-center gap-2 bg-card-gradient rounded-t-xl border-b border-b-gray-300">
+      <div className="w-full h-full mt-4 py-4 mx-4 bg-white flex items-center gap-2 bg-card-gradient rounded-t-xl border-b border-b-gray-300">
         <h2 className=" text-green-700 text-xl font-bold">Submissions</h2>
         <StudentIcon />
         <SlRefresh className="ml-auto" size={"25px"} />

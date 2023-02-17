@@ -36,7 +36,7 @@ export default function Profile() {
           contact={userData.contact}
           classCode={classCode}
         />
-        <div className="px-4 pt-10 bg-card-gradient rounded-t-xl">
+        <div className="mx-4 pt-10 bg-transparent border-t border-t-white">
           <ButtonCard styles="bg-gold-gradient  bg-lg bg-left-top">
             <p className="text-red-500 text-2xl font-semibold">Premium</p>
             <figure className="p-1.5 border-2 border-red-500 bg-white rounded-full">

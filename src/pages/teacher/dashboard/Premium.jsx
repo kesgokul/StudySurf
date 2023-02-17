@@ -29,11 +29,11 @@ export default function Premium() {
           <div className=" p-4 flex items-center gap-2 ">
             <ProfilePic picture={userData.picture} />
             <h2 className="text-2xl font-bold text-white">{userData.name}</h2>
-            <p className="ml-auto bg-white text-red-500 text-2xs p-0.5 border border-red-500">
+            <p className="ml-auto bg-gray-300 text-red-500 text-2xs p-0.5 border border-red-500">
               {classCode}
             </p>
           </div>
-          <div className="pb-10 flex justify-center items-center gap-4 border-b border-white">
+          <div className="pb-10 mx-4 flex justify-center items-center gap-4 border-b border-gray-400">
             <GrMail size="15px" color="gray" />
             <p className="text-sm text-gray-200">{userData.email}</p>
           </div>
