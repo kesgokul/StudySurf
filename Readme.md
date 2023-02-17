@@ -11,9 +11,10 @@ Forgetfully used yarn to install packages and setup the project. So please downl
 
 ## Doubts:
 
+1. How to implement different logins and dash Navigation
 1. Student context for student data
-2. differentiating b/w teacher/student logins - different dash navigation.
-3. Student assignments page - show due assignments, submit page,
+1. differentiating b/w teacher/student logins - different dash navigation.
+1. Student assignments page - show due assignments, submit page,
 
 =================================================
 Problem with pdf viewer installation
