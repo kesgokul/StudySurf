@@ -16,14 +16,16 @@ import ClassSuccess from "./pages/teacher/ClassSuccess";
 import Dashboard from "./pages/teacher/dashboard/Dashboard";
 import Submissions from "./pages/teacher/dashboard/Submissions";
 
-
+import Profile from "./pages/teacher/dashboard/Profile";
+import Premium from "./pages/teacher/dashboard/Premium";
 
 // Student components
 import StudentSelectClass from "./pages/student/StudentSelectClass";
 import StudentSuccess from "./pages/student/StudentSuccess";
 import StudentDashboard from "./pages/student/StudentDashboard";
 
-
+import StudentProfile from "./pages/student/Studentprofile";
+import StudentAssignmetns from "./pages/student/StudentAssignments";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,17 @@ const router = createBrowserRouter([
           },
         ],
       },
+
+      {
+        path: "/teacher/profile",
+        children: [
+          { path: "/teacher/profile", index: true, element: <Profile /> },
+          {
+            path: "/teacher/profile/premium",
+            element: <Premium />,
+          },
+        ],
+      },
     ],
   },
   // ----------------------- STUDENT ----------------------------
@@ -91,11 +104,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/success",
-        element: <StudentSuccess/>
+        element: <StudentSuccess />
+
       },
       {
         path: "/student/dashboard",
         element: <StudentDashboard />,
+      },
+      {
+        path: "/student/profile",
+        element: <StudentProfile />,
+      },
+      {
+        path: "/student/assignments",
+        element: <StudentAssignmetns />,
       },
     ],
   },

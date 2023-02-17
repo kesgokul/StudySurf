@@ -3,6 +3,9 @@ import studentImage from "/Man Student.png";
 import fakeLogo from "/Ellipse.png";
 import Layout from "../components/layout/Layout";
 
+import StudentIcon from "../components/icons/StudentIcon";
+import TeacherIcon from "../components/icons/TeacherIcon";
+
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +29,7 @@ function WhoAreYou() {
           className=" px-6 py-4 flex items-center gap-6 border-2 bg-purple-100  rounded-2xl w-3/4 max-w-md cursor-pointer"
         >
           <div className="p-4 bg-purple-300 rounded-2xl">
-            <img src={teacherImage} alt="image of a teacher" />
+            <TeacherIcon styles={"w-8 h-8"} />
           </div>
           <p className="text-2xl font-bold">Teacher</p>
         </motion.div>
@@ -37,7 +40,8 @@ function WhoAreYou() {
           className=" px-6 py-4 flex items-center gap-6 border-2 bg-green-100  rounded-2xl w-3/4 max-w-md cursor-pointer"
         >
           <div className="p-4 bg-green-300 rounded-2xl">
-            <img src={studentImage} alt="image of a student" />
+
+            <StudentIcon styles={"w-8 h-8"} />
           </div>
           <p className="text-2xl font-bold">Student</p>
         </motion.div>

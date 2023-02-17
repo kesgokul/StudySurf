@@ -1,14 +1,11 @@
-import React from 'react';
-import RegisterLayout from '../../components/layout/RegisterLayout';
-import bgSuccess from '../../../public/bg-success.png';
-import successTick from '../../../public/success-tick.png'
-import TeacherIcon from '../../components/icons/TeacherIcon';
 
-
+import React from "react";
+import RegisterLayout from "../../components/layout/RegisterLayout";
+import bgSuccess from "/bg-success.png";
+import successTick from "/success-tick.png";
+import TeacherIcon from "../../components/icons/TeacherIcon";
 
 export default function success() {
-
-
   const myStyle = {
     backgroundImage: `url(${bgSuccess})`,
     width: "347px",
@@ -17,8 +14,8 @@ export default function success() {
     top: "82px",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  };
 
   const tickStyle = {
     position: "absolute",
@@ -44,4 +41,5 @@ export default function success() {
       </button>
     </RegisterLayout>
   )
+
 }

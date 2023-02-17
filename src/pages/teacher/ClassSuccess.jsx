@@ -1,5 +1,6 @@
-import bgSuccess from '../../../public/bg-success.png';
-import successImage from "../../../public/success-tick.png";
+import bgSuccess from '/bg-success.png';
+
+import successImage from "/success.png";
 import RegisterLayout from "../../components/layout/RegisterLayout";
 import {
   HiOutlineClipboardDocument,
@@ -45,6 +46,7 @@ export default function ClassSuccess() {
       </div>
        
       <h1 className='text-xl text-green-600'>Success</h1>
+
       <p className=" w-3/4 text-xs text-gray-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolor
         incidunt fugit deserunt atque culpa id ratione suscipit quis illo!
