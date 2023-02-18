@@ -1,16 +1,17 @@
 import fakePdf from "/fake.pdf";
-import { useContext, useEffect, useState } from "react";
 // import { getStudentAssignments } from "../../../utils/helperFuncitons";
-import StudentIcon from "../../../components/icons/StudentIcon";
 import { SlRefresh } from "react-icons/sl";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllAssignments } from "../../../utils/helperFuncitons";
+import { useAuth } from "@arcana/auth-react";
 
 import DashLayout from "../../../components/layout/DashLayout";
 import TeacherContext from "../../../context/userContext";
 import SubmissionCard from "../../../components/cards/SubmissionCard";
+import StudentIcon from "../../../components/icons/StudentIcon";
 
 export default function Submissions() {
   const teacherContext = useContext(TeacherContext);
@@ -18,6 +19,8 @@ export default function Submissions() {
   const [submissions, setSubmissions] = useState([]);
 
   const navigate = useNavigate();
+
+  const { isLoggedIn } = useAuth();
 
   // Filtering the assignment submissions from the student data
   useEffect(() => {
@@ -39,7 +42,11 @@ export default function Submissions() {
     setSubmissions(allAssignments);
   }, [students]);
 
-  console.log(submissions);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>

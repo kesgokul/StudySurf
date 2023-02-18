@@ -10,9 +10,20 @@ import { GrMail } from "react-icons/gr";
 import { useContext, useState } from "react";
 import { premiumPlans } from "../../../fakeData";
 
+import { useEffect } from "react";
+import { useAuth } from "@arcana/auth-react";
+
 export default function Premium() {
   const [yearlyPlan, setYearlyPlan] = useState(false);
   const { userData } = useContext(UserContext);
+
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>

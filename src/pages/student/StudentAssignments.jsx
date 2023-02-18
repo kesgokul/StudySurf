@@ -6,14 +6,17 @@ import StudentIcon from "../../components/icons/StudentIcon";
 import StudentAssignmentCard from "../../components/cards/StudentAssignMentCard";
 import CurvedArrow from "../../components/icons/CurvedArrow";
 
-import { useContext, useEffect, useState } from "react";
 import { SiGoogleclassroom } from "react-icons/si";
 import { GoBell } from "react-icons/go";
-import { getAllAssignments } from "../../utils/helperFuncitons";
+
+import { useContext, useEffect, useState } from "react";
+import { useAuth } from "@arcana/auth-react";
 
 export default function StudentAssignmetns() {
   const { students, userData } = useContext(TeacherContext);
   const student = students[0];
+
+  const { isLoggedIn } = useAuth();
 
   // getting all the assignments from the student object
   //   const [assignmets, setAssignments] = useState([]);
@@ -22,6 +25,12 @@ export default function StudentAssignmetns() {
 
   //     setAssignments(allAss);
   //   }, [student]);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>

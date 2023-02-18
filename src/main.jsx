@@ -26,6 +26,7 @@ import StudentDashboard from "./pages/student/StudentDashboard";
 
 import StudentProfile from "./pages/student/Studentprofile";
 import StudentAssignmetns from "./pages/student/StudentAssignments";
+import NotLoggedIn from "./pages/NotLoggedIn";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/not-logged-in",
+    element: <NotLoggedIn />,
   },
   // -------------------------- TEACHER ---------------------------------
   {

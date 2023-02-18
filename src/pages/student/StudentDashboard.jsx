@@ -1,4 +1,3 @@
-import React from "react";
 import DashLayout from "../../components/layout/DashLayout";
 import StudentIcon from "../../components/icons/StudentIcon";
 import UserContext from "../../context/userContext";
@@ -7,9 +6,20 @@ import ClassroomCard from "../../components/cards/ClassroomCard";
 import { FaUserEdit } from "react-icons/fa";
 import { useContext } from "react";
 
+import { useEffect } from "react";
+import { useAuth } from "@arcana/auth-react";
+
 export default function StudentDashboard() {
   const { students } = useContext(UserContext);
   const student = students[0];
+
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>

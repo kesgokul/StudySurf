@@ -45,7 +45,7 @@ export default function SelectClass() {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      navigate("/login");
+      navigate("/not-logged-in");
     }
     // console.log(user);
   }, [isLoggedIn]);

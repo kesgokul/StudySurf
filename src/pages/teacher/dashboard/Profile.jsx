@@ -57,11 +57,9 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      if (!isLoggedIn) {
-        navigate("/login");
-      }
-    }, 4000);
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
   }, [isLoggedIn]);
 
   return (

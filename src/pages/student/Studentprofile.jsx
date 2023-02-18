@@ -9,10 +9,14 @@ import { HiQuestionMarkCircle } from "react-icons/hi";
 import { GiVibratingBall } from "react-icons/gi";
 import { BsBookmarkFill } from "react-icons/bs";
 import { RiLogoutCircleRLine } from "react-icons/ri";
-import { useContext } from "react";
+
+import { useContext, useEffect } from "react";
+import { useAuth } from "@arcana/auth-react";
 
 export default function StudentProfile() {
   const teacherContext = useContext(TeacherContext);
+  const { isLoggedIn } = useAuth();
+
   const { students } = teacherContext;
   const studentData = {
     name: students[0].name,
@@ -20,6 +24,13 @@ export default function StudentProfile() {
     id: students[0].studentId,
     contact: students[0].contact,
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
+
   return (
     <DashLayout>
       <main className="my-10 bg-card-gradient w-full h-full rounded-t-xl">

@@ -3,11 +3,13 @@ import TeacherCard from "../../../components/cards/TeacherCard";
 import StudentCard from "../../../components/cards/StudentCard";
 
 import UserContext from "../../../context/userContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { getStudentAssignments } from "../../../utils/helperFuncitons";
+import { useAuth } from "@arcana/auth-react";
 
 export default function Dashboard() {
   const { students, userData } = useContext(UserContext);
+  const { isLoggedIn } = useAuth();
 
   // function getStudentAssignments(student) {
   //   const course = student.classes.find((c) => c.classCode === classCode);
@@ -17,6 +19,12 @@ export default function Dashboard() {
 
   //   return course.assignments;
   // }
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>

@@ -31,7 +31,7 @@ export default function TeacherRegister() {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      navigate("/login");
+      navigate("/not-logged-in");
     }
   }, [isLoggedIn]);
 

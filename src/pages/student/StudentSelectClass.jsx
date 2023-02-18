@@ -8,10 +8,12 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@arcana/auth-react";
 
 export default function StudentSelectClass() {
   const { setUserData, userData } = useContext(UserContext);
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   function handleFormSubmit(data) {
     const classes = [];
@@ -24,7 +26,11 @@ export default function StudentSelectClass() {
     navigate("/student/success");
   }
 
-  // console.log(userData);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   return (
     <RegisterLayout>

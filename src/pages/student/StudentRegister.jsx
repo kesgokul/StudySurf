@@ -3,11 +3,11 @@ import RegisterLayout from "../../components/layout/RegisterLayout";
 import UserContext from "../../context/userContext";
 
 import { useAuth } from "@arcana/auth-react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function StudentRegister() {
-  const { user } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -24,6 +24,12 @@ export default function StudentRegister() {
     setUserData(userObj);
     navigate("/student/select-class");
   }
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/not-logged-in");
+    }
+  }, [isLoggedIn]);
 
   // console.log(userData);
   return (
