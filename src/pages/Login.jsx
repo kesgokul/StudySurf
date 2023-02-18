@@ -13,8 +13,6 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { setUserData, userData } = useContext(TeacherContext);
-
   //   async function handleLogin() {
   //     console.log("google");
   //     await loginWithSocial("google");
@@ -23,12 +21,7 @@ export default function Login() {
   useEffect(() => {
     if (isLoggedIn && user) {
       // console.log(user);
-      const userObj = {
-        email: user.id,
-        picture: user.picture,
-        walletAddress: user.address,
-      };
-      setUserData(userObj);
+
       navigate(`/who-are-you`);
     }
   }, [user, isLoggedIn]);

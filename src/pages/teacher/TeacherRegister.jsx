@@ -17,7 +17,9 @@ export default function TeacherRegister() {
 
   function handleFormSubmit(data) {
     const userObj = {
-      ...userData,
+      email: user.id,
+      picture: user.picture,
+      walletAddress: user.address,
       name: data.fullName,
       teacherId: data.teacherId,
       contact: data.contact && data.contact,
