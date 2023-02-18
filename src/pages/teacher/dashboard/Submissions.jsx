@@ -12,12 +12,14 @@ import DashLayout from "../../../components/layout/DashLayout";
 import TeacherContext from "../../../context/userContext";
 import SubmissionCard from "../../../components/cards/SubmissionCard";
 import StudentIcon from "../../../components/icons/StudentIcon";
+import PlagScoreModal from "../../../components/PlagScoreModal";
 
 export default function Submissions() {
   const teacherContext = useContext(TeacherContext);
   const { classCode, students } = teacherContext;
   const [submissions, setSubmissions] = useState([]);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [comparing, setComparing] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,14 +45,15 @@ export default function Submissions() {
     setSubmissions(allAssignments);
   }, [students]);
 
-  function handleItemSelect(e, file) {
-    if (selectedFiles.includes(file)) {
-      setSelectedFiles((files) => files.filter((f) => f !== file));
+  function handleItemSelect(file) {
+    if (selectedFiles.some((f) => f.student === file.student)) {
+      setSelectedFiles((files) =>
+        files.filter((f) => f.student !== file.student)
+      );
     } else {
       setSelectedFiles([...selectedFiles, file]);
     }
   }
-  console.log(selectedFiles);
 
   // useEffect(() => {
   //   if (!isLoggedIn) {
@@ -89,11 +92,18 @@ export default function Submissions() {
       )}
       {selectedFiles.length === 2 && (
         <button
-          onClick={() => {}}
+          onClick={() => setComparing(true)}
           className="bg-green-500 w-32 bg-lg bg-left-top px-4 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  "
         >
           Compare
         </button>
+      )}
+      {comparing && (
+        <PlagScoreModal
+          onClose={() => setComparing(false)}
+          sub1={selectedFiles[0]}
+          sub2={selectedFiles[1]}
+        />
       )}
     </DashLayout>
   );

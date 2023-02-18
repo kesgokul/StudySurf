@@ -6,7 +6,7 @@ import { useInView, motion } from "framer-motion";
 import { MdDownloadForOffline } from "react-icons/md";
 
 import ProfilePic from "../icons/ProfilePic";
-import TeacherContext from "../../context/userContext";
+import UserContext from "../../context/userContext";
 import fakeProfilePic from "/profile-pic.png";
 import fakeThumbnail from "/fake-thumbnail.png";
 import AssesmentDetails from "../AssesmentDetails";
@@ -19,14 +19,15 @@ export default function SubmissionCard({
   name,
   file,
   files,
+  doc,
   date,
   plagScore,
   onSelect,
 }) {
   const [student, setStudent] = useState({});
   const [notiSent, setNotiSent] = useState(false);
-  const teacherContext = useContext(TeacherContext);
-  const { students } = teacherContext;
+
+  const { students } = useContext(UserContext);
 
   // unblur when in view config
   const ref = useRef(null);
@@ -54,7 +55,15 @@ export default function SubmissionCard({
           className="w-5 h-5"
           type="checkbox"
           // checked={() => files.includes(file)}
-          onChange={(e) => onSelect(e, file)}
+          onChange={(e) =>
+            onSelect({
+              picture: student.picture,
+              student: student.name,
+              assignment: name,
+              date,
+              doc,
+            })
+          }
         />
       </div>
       <aside className="w-4/5 max-w-md bg-inherit">
@@ -62,7 +71,7 @@ export default function SubmissionCard({
         <section>
           <AssesmentDetails plagScore={plagScore} />
         </section>
-        <section className="flex items-center gap-2">
+        <section className="mt-2 flex items-center gap-2">
           {/** just the noti icon in the div > figure */}
           {notiSent ? (
             <div className="p-0.5 bg-yellow-100 border border-gray-500 rounded-full">
