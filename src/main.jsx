@@ -5,7 +5,7 @@ import App from "./App";
 import { AuthProvider } from "@arcana/auth";
 import { ProvideAuth } from "@arcana/auth-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { TeacherContextProvider } from "./context/teacherContext";
+import { UserContextProvider } from "./context/userContext";
 
 import WhoAreYou from "./pages/WhoAreYou";
 import Login from "./pages/Login";
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         element: <StudentProfile />,
       },
       {
-        path: "/student/assignments",
+        path: "/student/dashboard/submissions",
         element: <StudentAssignmetns />,
       },
     ],
@@ -123,9 +123,9 @@ const provider = new AuthProvider(arcanaAppAddress);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ProvideAuth provider={provider}>
-      <TeacherContextProvider>
+      <UserContextProvider>
         <RouterProvider router={router} />
-      </TeacherContextProvider>
+      </UserContextProvider>
     </ProvideAuth>
   </React.StrictMode>
 );

@@ -1,7 +1,7 @@
 import DashLayout from "../../components/layout/DashLayout";
 import StudentIcon from "../../components/icons/StudentIcon";
 import ProfileInfoCard from "../../components/cards/ProfileInfoCard";
-import TeacherContext from "../../context/teacherContext";
+import TeacherContext from "../../context/userContext";
 import ButtonCard from "../../components/cards/ButtonCard";
 
 import { FaUserEdit, FaCrown } from "react-icons/fa";

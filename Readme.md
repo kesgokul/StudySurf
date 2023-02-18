@@ -6,13 +6,10 @@ Forgetfully used yarn to install packages and setup the project. So please downl
 2. Connecting Arcana auth and collecting user account info to auto fill the sign-up forms. ✅
 3. Teacher Select/create class. ✅
 4. Dashboards
-5. Creating states for teacher and student profiles.
+5. Creating states for teacher and student profiles. // single state for now ✅
 
-   - How to map the teacher -> student -> assignment data
-
-6. How to implement different logins and dash Navigation
-7. Student context for student data
-8. differentiating b/w teacher/student logins - different dash navigation.
+6. How to implement different dash Navigation
+7. Post teacher data to api from ClassSelect or classSuccess page.
 
 =================================================
 Problem with pdf viewer installation

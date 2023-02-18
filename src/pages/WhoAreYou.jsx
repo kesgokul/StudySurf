@@ -5,11 +5,11 @@ import Layout from "../components/layout/Layout";
 
 import StudentIcon from "../components/icons/StudentIcon";
 import TeacherIcon from "../components/icons/TeacherIcon";
-import TeacherContext from "../context/teacherContext";
+import TeacherContext from "../context/userContext";
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useAuth } from "@arcana/auth-react";
 
 const cardAnimate = {
@@ -20,14 +20,12 @@ export default function WhoAreYou() {
   const { isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
 
-  const { userData } = useContext(TeacherContext);
-
   useEffect(() => {
     if (!isLoggedIn) {
       return navigate("/login");
     }
   }, [isLoggedIn]);
-  // console.log(userData);
+
   return (
     <Layout transition={{ opacity: { duration: 1 } }}>
       <img className=" mt-10 w-20 h-20" src={fakeLogo} alt="logo" />

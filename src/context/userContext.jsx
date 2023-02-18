@@ -10,14 +10,14 @@ const userObj = {
   teacherId: "23423434",
 };
 
-const TeacherContext = createContext({
+const UserContext = createContext({
   userData: {},
   students: [],
   setUserData: () => {},
   setStudents: () => {},
 });
 
-export function TeacherContextProvider({ children }) {
+export function UserContextProvider({ children }) {
   const [userData, setUserData] = useState(() => {
     const storedState = localStorage.getItem("surfUser");
     return storedState ? JSON.parse(storedState) : {};
@@ -36,9 +36,7 @@ export function TeacherContextProvider({ children }) {
     localStorage.setItem("surfUser", JSON.stringify(userData));
   }, [userData]);
 
-  return (
-    <TeacherContext.Provider value={value}>{children}</TeacherContext.Provider>
-  );
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
-export default TeacherContext;
+export default UserContext;

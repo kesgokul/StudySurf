@@ -1,12 +1,12 @@
 import DashLayout from "../../../components/layout/DashLayout";
 import TeacherIcon from "../../../components/icons/TeacherIcon";
-import TeacherContext from "../../../context/teacherContext";
+import UserContext from "../../../context/userContext";
 import ProfilePic from "../../../components/icons/ProfilePic";
 import ButtonCard from "../../../components/cards/ButtonCard";
 import ProfileInfoCard from "../../../components/cards/ProfileInfoCard";
 
 import { FaUserEdit } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { BsBookmarkFill } from "react-icons/bs";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FaCrown, FaEye } from "react-icons/fa";
@@ -15,6 +15,7 @@ import { TbCircleDotted } from "react-icons/tb";
 import { IoCloseCircle } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@arcana/auth-react";
 
 const notis = [
   {
@@ -40,10 +41,11 @@ const notis = [
 ];
 
 export default function Profile() {
-  const teacherContext = useContext(TeacherContext);
-  const { userData, classCode } = teacherContext;
+  const { userData } = useContext(UserContext);
   const [notiExpanded, setNotiExpanded] = useState(false);
   const navigate = useNavigate();
+
+  const { isLoggedIn } = useAuth();
 
   //notification click handler
   function handleNotificationsCardClick() {
@@ -53,6 +55,14 @@ export default function Profile() {
   function handlePremiumCardClick() {
     navigate("/teacher/profile/premium");
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (!isLoggedIn) {
+        navigate("/login");
+      }
+    }, 4000);
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>
@@ -73,7 +83,7 @@ export default function Profile() {
           id={userData.teacherId}
           email={userData.email}
           contact={userData.contact}
-          classCode={classCode}
+          classCode={userData.classCode}
         />
         <div className="mx-4 pt-10 bg-transparent border-t border-t-white">
           <ButtonCard

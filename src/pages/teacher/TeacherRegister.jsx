@@ -7,16 +7,17 @@ import { useAuth } from "@arcana/auth-react";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import TeacherContext from "../../context/teacherContext";
+import UserContext from "../../context/userContext";
 
 export default function TeacherRegister() {
   const [userName, setUserName] = useState("");
   const { user, isLoggedIn } = useAuth();
   const navigate = useNavigate();
-  const { setUserData, userData } = useContext(TeacherContext);
+  const { setUserData, userData } = useContext(UserContext);
 
   function handleFormSubmit(data) {
     const userObj = {
+      userType: "teacher",
       email: user.id,
       picture: user.picture,
       walletAddress: user.address,
@@ -29,7 +30,7 @@ export default function TeacherRegister() {
   }
 
   useEffect(() => {
-    if (!userData) {
+    if (!isLoggedIn) {
       navigate("/login");
     }
   }, [isLoggedIn]);
@@ -37,7 +38,7 @@ export default function TeacherRegister() {
   return (
     <RegisterLayout teacher={true}>
       <h2 className="mt-10 text-2xl font-semibold">Add you details</h2>
-      <TeacherForm onFormSubmit={handleFormSubmit} name={"gokul"} />
+      <TeacherForm onFormSubmit={handleFormSubmit} />
     </RegisterLayout>
   );
 }

@@ -1,6 +1,6 @@
 import DashLayout from "../../../components/layout/DashLayout";
 import TeacherIcon from "../../../components/icons/TeacherIcon";
-import TeacherContext from "../../../context/teacherContext";
+import UserContext from "../../../context/userContext";
 import ProfilePic from "../../../components/icons/ProfilePic";
 import PremiumPlanCard from "../../../components/cards/PremiumPlanCard";
 
@@ -12,8 +12,8 @@ import { premiumPlans } from "../../../fakeData";
 
 export default function Premium() {
   const [yearlyPlan, setYearlyPlan] = useState(false);
-  const teacherContext = useContext(TeacherContext);
-  const { userData, classCode } = teacherContext;
+  const { userData } = useContext(UserContext);
+
   return (
     <DashLayout>
       <main className=" mt-10 pt-4 w-full h-full  bg-black rounded-t-xl">
@@ -28,9 +28,11 @@ export default function Premium() {
         <section className=" h-full bg-green-gradient rounded-t-xl">
           <div className=" p-4 flex items-center gap-2 ">
             <ProfilePic picture={userData.picture} />
-            <h2 className="text-2xl font-bold text-white">{userData.name}</h2>
+            <h2 className="text-2xl font-bold text-white uppercase">
+              {userData.name}
+            </h2>
             <p className="ml-auto bg-gray-300 text-red-500 text-2xs p-0.5 border border-red-500">
-              {classCode}
+              {userData.classCode}
             </p>
           </div>
           <div className="pb-10 mx-4 flex justify-center items-center gap-4 border-b border-gray-400">

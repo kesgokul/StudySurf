@@ -1,7 +1,7 @@
 import bgSuccess from "/bg-success.png";
 import successImage from "/success.png";
 import RegisterLayout from "../../components/layout/RegisterLayout";
-import TeacherContext from "../../context/teacherContext";
+import UserContext from "../../context/userContext";
 
 import {
   HiOutlineClipboardDocument,
@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function ClassSuccess() {
   const [codeCopied, setCodeCopied] = useState(false);
-  const { userData } = useContext(TeacherContext);
+  const { userData } = useContext(UserContext);
   const navigate = useNavigate();
 
   async function copyToClipboard() {

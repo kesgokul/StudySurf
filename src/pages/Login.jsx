@@ -2,7 +2,7 @@ import googleIcon from "/google-icon.jpeg";
 import fakeLogo from "/Ellipse.png";
 import Layout from "../components/layout/Layout";
 
-import TeacherContext from "../context/teacherContext";
+import TeacherContext from "../context/userContext";
 
 import { useAuth, Auth } from "@arcana/auth-react";
 import { useEffect, useContext } from "react";
@@ -12,11 +12,6 @@ export default function Login() {
   const { isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-
-  //   async function handleLogin() {
-  //     console.log("google");
-  //     await loginWithSocial("google");
-  //   }
 
   useEffect(() => {
     if (isLoggedIn && user) {

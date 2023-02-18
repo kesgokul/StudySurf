@@ -1,10 +1,10 @@
-export function getStudentAssignments(student) {
-  const assignments = student.classes.flatMap((c) => c.assignments);
-  // if (!course) {
-  //   return null;
-  // }
+export function getStudentAssignments(student, classCode) {
+  const course = student.classes.find((c) => c.classCode === classCode);
+  if (!course) {
+    return null;
+  }
 
-  return assignments;
+  return course.assignments;
 }
 
 // export function getSubmittedAssignments(assignments) {

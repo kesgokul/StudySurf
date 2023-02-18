@@ -4,27 +4,28 @@ import ProfilePic from "../icons/ProfilePic";
 import DashIcon from "../icons/DashMenu";
 import DashClipboardIcon from "../icons/DashClipboardIcon";
 import DashProfileIcon from "../icons/DashIcon";
+import UserContext from "../../context/userContext";
+
 import { BiClipboard, BiUserPin } from "react-icons/bi";
 import { BsGridFill } from "react-icons/bs";
-
 import { motion } from "framer-motion";
-
 import { useNavigate, useLocation } from "react-router-dom";
-import { useCallback, useState } from "react";
-
-const navPaths = [
-  "/teacher/dashboard",
-  "/teacher/dashboard/submissions",
-  "/teacher/profile",
-];
+import { useCallback, useState, useContext } from "react";
 
 export default function DashLayout(props) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { userData } = useContext(UserContext);
+
+  const navPaths = [
+    `/${userData.userType}/dashboard`,
+    `/${userData.userType}/dashboard/submissions`,
+    `/${userData.userType}/profile`,
+  ];
+
   const [activePage, setActivePage] = useState(
     navPaths.indexOf(location.pathname)
   );
-
   const handleNavIconClick = useCallback(
     (nav) => {
       setActivePage(nav);
@@ -37,7 +38,6 @@ export default function DashLayout(props) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-
       className="w-screen h-auto min-h-screen max-w-xl bg-gradient-to-br from-white to-rose-100 flex flex-col items-center relative "
     >
       <div className=" mt-10 px-4 w-full flex justify-between items-center">

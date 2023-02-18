@@ -6,14 +6,13 @@ import { useInView, motion } from "framer-motion";
 import { MdDownloadForOffline } from "react-icons/md";
 
 import ProfilePic from "../icons/ProfilePic";
-import TeacherContext from "../../context/teacherContext";
+import TeacherContext from "../../context/userContext";
 import fakeProfilePic from "/profile-pic.png";
 import fakeThumbnail from "/fake-thumbnail.png";
 import AssesmentDetails from "../AssesmentDetails";
 import NotificationIcon from "../icons/NotificaitonIcon";
 
 import FileCard from "./FileCard";
-
 
 export default function SubmissionCard({
   studentId,
@@ -44,15 +43,12 @@ export default function SubmissionCard({
   return (
     <main
       ref={ref}
-
       className={`w-full py-4 bg-inherit flex justify-center gap-2 ${
         isInView ? "blur-0" : "blur-sm"
-
       }`}
     >
       <ProfilePic picture={(student && student.picture) || fakeProfilePic} />
       <aside className="w-4/5 max-w-md bg-inherit">
-
         <FileCard name={name} file={file} date={date} />
         <section>
           <AssesmentDetails plagScore={plagScore} />

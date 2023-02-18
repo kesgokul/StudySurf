@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-export default function StudentForm({ name }) {
+export default function StudentForm({ name, onFormSubmit }) {
   return (
     <Formik
       initialValues={{
@@ -17,7 +17,7 @@ export default function StudentForm({ name }) {
         contact: Yup.string().required("Required"),
       })}
       onSubmit={(values, { setSubmiting }) => {
-        console.table(values);
+        onFormSubmit(values);
         setSubmiting(false);
       }}
     >

@@ -1,5 +1,5 @@
 import DashLayout from "../../components/layout/DashLayout";
-import TeacherContext from "../../context/teacherContext";
+import TeacherContext from "../../context/userContext";
 import ProfilePic from "../../components/icons/ProfilePic";
 import TeacherIcon from "../../components/icons/TeacherIcon";
 import StudentIcon from "../../components/icons/StudentIcon";

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllAssignments } from "../../../utils/helperFuncitons";
 
 import DashLayout from "../../../components/layout/DashLayout";
-import TeacherContext from "../../../context/teacherContext";
+import TeacherContext from "../../../context/userContext";
 import SubmissionCard from "../../../components/cards/SubmissionCard";
 
 export default function Submissions() {
@@ -22,7 +22,6 @@ export default function Submissions() {
   // Filtering the assignment submissions from the student data
   useEffect(() => {
     const allAssignments = students.flatMap((s) => {
-
       const allStudentAssignments = getAllAssignments(s.classes);
       const filteredAssignments = allStudentAssignments
         .filter((a) => a.submitted)
@@ -32,7 +31,6 @@ export default function Submissions() {
             ...a,
           };
         });
-
 
       return filteredAssignments;
     });
@@ -45,7 +43,6 @@ export default function Submissions() {
 
   return (
     <DashLayout>
-
       <div className="w-full h-full mt-4 py-4 mx-4 bg-white flex items-center gap-2 bg-card-gradient rounded-t-xl border-b border-b-gray-300">
         <h2 className=" text-green-700 text-xl font-bold">Submissions</h2>
         <StudentIcon />

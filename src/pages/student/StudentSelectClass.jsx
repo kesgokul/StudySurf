@@ -2,10 +2,30 @@ import React from "react";
 import RegisterLayout from "../../components/layout/RegisterLayout";
 import onlineStudent from "/online-student.png";
 import StudentIcon from "../../components/icons/StudentIcon";
+import UserContext from "../../context/userContext";
+
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function StudentSelectClass() {
+  const { setUserData, userData } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  function handleFormSubmit(data) {
+    const classes = [];
+    classes.push(data.classCode);
+
+    setUserData({
+      ...userData,
+      classes: classes,
+    });
+    navigate("/student/success");
+  }
+
+  // console.log(userData);
+
   return (
     <RegisterLayout>
       <img src={onlineStudent} className="mt-16 mb-7" />
@@ -26,8 +46,8 @@ export default function StudentSelectClass() {
           classCode: Yup.string().required("Please enter your class code"),
         })}
         onSubmit={(values, { setSubmiting }) => {
-          console.table(values);
-          setSubmiting(false);
+          handleFormSubmit(values);
+          setSubmiting = false;
         }}
       >
         <Form className="w-full max-w-md px-7 flex flex-col my-7">

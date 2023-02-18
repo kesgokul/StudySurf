@@ -5,11 +5,11 @@ import { useAuth } from "@arcana/auth-react";
 
 import RegisterLayout from "../../components/layout/RegisterLayout";
 import TeacherIcon from "../../components/icons/TeacherIcon";
-import TeacherContext from "../../context/teacherContext";
+import UserContext from "../../context/userContext";
 export default function SelectClass() {
-  const options = ["CHEMII2023B", "MATHI2023F", "BIOIII2023D"];
+  const options = ["CHEMII2023D", "PHYII2023D", "BIOI2023A"];
 
-  const { setUserData, userData } = useContext(TeacherContext);
+  const { setUserData, userData } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [inputTouched, setInputToucher] = useState(false);
