@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { fakeStudentData } from "../fakeData";
 
 const userObj = {
@@ -12,26 +12,29 @@ const userObj = {
 
 const TeacherContext = createContext({
   userData: {},
-  classCode: "",
   students: [],
   setUserData: () => {},
-  setClassCode: () => {},
   setStudents: () => {},
 });
 
 export function TeacherContextProvider({ children }) {
-  const [userData, setUserData] = useState(userObj);
-  const [classCode, setClassCode] = useState("CHEMII2023D");
+  const [userData, setUserData] = useState(() => {
+    const storedState = localStorage.getItem("surfUser");
+    return storedState ? JSON.parse(storedState) : {};
+  });
   const [students, setStudents] = useState(fakeStudentData);
 
   const value = {
     userData,
-    classCode,
     students,
     setUserData,
-    setClassCode,
     setStudents,
   };
+
+  // storing the userData in localStorage on change
+  useEffect(() => {
+    localStorage.setItem("surfUser", JSON.stringify(userData));
+  }, [userData]);
 
   return (
     <TeacherContext.Provider value={value}>{children}</TeacherContext.Provider>

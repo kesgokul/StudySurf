@@ -1,10 +1,10 @@
-export function getStudentAssignments(student, classCode) {
-  const course = student.classes.find((c) => c.classCode === classCode);
-  if (!course) {
-    return null;
-  }
+export function getStudentAssignments(student) {
+  const assignments = student.classes.flatMap((c) => c.assignments);
+  // if (!course) {
+  //   return null;
+  // }
 
-  return course.assignments;
+  return assignments;
 }
 
 // export function getSubmittedAssignments(assignments) {
@@ -15,7 +15,6 @@ export function getStudentAssignments(student, classCode) {
 export function formatDate(date) {
   return [date.getDate(), date.getMonth(), date.getFullYear()].join("/");
 }
-
 
 export function getAllAssignments(classes) {
   return classes.flatMap((c) => c.assignments);

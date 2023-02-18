@@ -8,7 +8,7 @@ import { getStudentAssignments } from "../../../utils/helperFuncitons";
 
 export default function Dashboard() {
   const teacherContext = useContext(TeacherContext);
-  const { students, classCode, userData } = teacherContext;
+  const { students, userData } = teacherContext;
 
   // function getStudentAssignments(student) {
   //   const course = student.classes.find((c) => c.classCode === classCode);
@@ -31,7 +31,7 @@ export default function Dashboard() {
               key={s.studentId}
               name={s.name}
               picture={s.picture}
-              assignments={getStudentAssignments(s, classCode)}
+              assignments={getStudentAssignments(s)}
             />
           );
         })}

@@ -4,23 +4,33 @@ import TeacherForm from "../../components/TeacherForm";
 import RegisterLayout from "../../components/layout/RegisterLayout";
 
 import { useAuth } from "@arcana/auth-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import TeacherContext from "../../context/teacherContext";
 
 export default function TeacherRegister() {
   const [userName, setUserName] = useState("");
-  // const { user, isLoggedIn } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const navigate = useNavigate();
+  const { setUserData, userData } = useContext(TeacherContext);
 
   function handleFormSubmit(data) {
-    console.log(data);
+    const userObj = {
+      ...userData,
+      name: data.fullName,
+      teacherId: data.teacherId,
+      contact: data.contact && data.contact,
+    };
+    setUserData(userObj);
+    navigate("/teacher/select-class");
   }
 
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     navigate("/login");
-  //   }
-  // }, [isLoggedIn, user]);
+  useEffect(() => {
+    if (!userData) {
+      navigate("/login");
+    }
+  }, [isLoggedIn]);
 
   return (
     <RegisterLayout teacher={true}>

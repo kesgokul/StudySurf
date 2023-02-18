@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/whoAreYou");
+      navigate("/login");
     }, 2000);
   }, []);
 
@@ -23,7 +23,7 @@ function App() {
           animate={{ y: [0, 15, 0], opacity: 1 }}
           transition={{ delay: 0.25 }}
         >
-          Splash screen
+          StudySurf
         </motion.h1>
         <p className={"mt-auto text-white"}>
           ©Splash Screen | All rights reserved

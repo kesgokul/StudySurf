@@ -1,17 +1,24 @@
 import classroomImage from "/teacher-classroom.png";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@arcana/auth-react";
 
 import RegisterLayout from "../../components/layout/RegisterLayout";
 import TeacherIcon from "../../components/icons/TeacherIcon";
+import TeacherContext from "../../context/teacherContext";
 export default function SelectClass() {
-  const options = ["CHEM-II-2023-B", "MATH-I-2023-F", "BIO-III-2023-D"];
+  const options = ["CHEMII2023B", "MATHI2023F", "BIOIII2023D"];
+
+  const { setUserData, userData } = useContext(TeacherContext);
+  const navigate = useNavigate();
 
   const [inputTouched, setInputToucher] = useState(false);
   const [dropDown, setDropDown] = useState(false);
 
   const [inputValue, setInputValue] = useState("");
   //   const [filteredOptions, setFilteredOptions] = useState(options);
+
+  const { isLoggedIn } = useAuth();
 
   function handleChange(event) {
     const value = event.target.value;
@@ -25,8 +32,24 @@ export default function SelectClass() {
 
   function handleSelect(value) {
     setInputValue(value);
-    setFilteredOptions(options);
+    // setFilteredOptions(options);
   }
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    console.log("submit");
+    setUserData({ ...userData, classCode: inputValue });
+    setInputValue("");
+    navigate("/teacher/select-class/success");
+  }
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+    // console.log(user);
+  }, [isLoggedIn]);
+  console.log(userData);
 
   return (
     <RegisterLayout teacher={true}>
@@ -39,9 +62,7 @@ export default function SelectClass() {
 
       {/* class input */}
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
+        onSubmit={handleFormSubmit}
         className="mt-10 w-full h-auto max-w-md flex flex-col items-center "
       >
         <div className="w-11/12 h-16  flex items-center">
@@ -56,12 +77,12 @@ export default function SelectClass() {
               className="w-full pl-2 py-2 bg-input-orange text-white rounded-bl-xl uppercase focus:outline-none"
               name="class"
               type="text"
-              onFocus={() => console.log("focus")}
               value={inputValue}
               onChange={handleChange}
             />
           </div>
           <button
+            type="button"
             onClick={() => setDropDown((s) => !s)}
             className="w-1/5 h-full flex items-center justify-center bg-input-brown text-white text-2xl font-bold rounded-r-xl"
           >
@@ -89,7 +110,7 @@ export default function SelectClass() {
         </ul>
         <button
           type="submit"
-          className="px-4 py-2 mt-10 mb-10 bg-button-green rounded-xl "
+          className="px-6 py-3 mb-10 bg-button-green rounded-xl "
         >
           <span className="pr-4">Next</span>
           {"\u27F6"}

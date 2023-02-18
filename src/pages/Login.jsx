@@ -8,12 +8,12 @@ import { useAuth, Auth } from "@arcana/auth-react";
 import { useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-function TeacherLogin() {
-  const { isLoggedIn, loginWithLink, user } = useAuth();
+export default function Login() {
+  const { isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {} = useContext(TeacherContext);
+  const { setUserData, userData } = useContext(TeacherContext);
 
   //   async function handleLogin() {
   //     console.log("google");
@@ -21,13 +21,17 @@ function TeacherLogin() {
   //   }
 
   useEffect(() => {
-    if (isLoggedIn) {
-      console.log(user);
-      navigate(`${location.pathname}/registerTeacher`);
+    if (isLoggedIn && user) {
+      // console.log(user);
+      const userObj = {
+        email: user.id,
+        picture: user.picture,
+        walletAddress: user.address,
+      };
+      setUserData(userObj);
+      navigate(`/who-are-you`);
     }
-  }, [user, isLoggedIn, location]);
-
-  console.log(location.pathname);
+  }, [user, isLoggedIn]);
 
   return (
     <Layout>
@@ -50,5 +54,3 @@ function TeacherLogin() {
     </Layout>
   );
 }
-
-export default TeacherLogin;

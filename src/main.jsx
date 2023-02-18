@@ -37,6 +37,10 @@ const router = createBrowserRouter([
     path: "/who-are-you",
     element: <WhoAreYou />,
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
   // -------------------------- TEACHER ---------------------------------
   {
     path: "/teacher",
@@ -44,10 +48,6 @@ const router = createBrowserRouter([
       {
         path: "/teacher",
         index: true,
-        element: <Login />,
-      },
-      {
-        path: "/teacher/register",
         element: <TeacherRegister />,
       },
       {
@@ -91,11 +91,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/student",
-        index: true,
-        element: <Login />,
-      },
-      {
-        path: "/student/register",
+        index: "true",
         element: <StudentRegister />,
       },
       {
@@ -104,8 +100,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/success",
-        element: <StudentSuccess />
-
+        element: <StudentSuccess />,
       },
       {
         path: "/student/dashboard",
