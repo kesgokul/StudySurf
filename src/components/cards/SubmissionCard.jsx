@@ -18,8 +18,10 @@ export default function SubmissionCard({
   studentId,
   name,
   file,
+  files,
   date,
   plagScore,
+  onSelect,
 }) {
   const [student, setStudent] = useState({});
   const [notiSent, setNotiSent] = useState(false);
@@ -38,8 +40,6 @@ export default function SubmissionCard({
     setStudent(students.find((s) => s.studentId === studentId));
   }, []);
 
-  console.log(isInView);
-
   return (
     <main
       ref={ref}
@@ -47,7 +47,16 @@ export default function SubmissionCard({
         isInView ? "blur-0" : "blur-sm"
       }`}
     >
-      <ProfilePic picture={(student && student.picture) || fakeProfilePic} />
+      {" "}
+      <div className="flex flex-col justify-start items-center gap-3">
+        <ProfilePic picture={(student && student.picture) || fakeProfilePic} />
+        <input
+          className="w-5 h-5"
+          type="checkbox"
+          // checked={() => files.includes(file)}
+          onChange={(e) => onSelect(e, file)}
+        />
+      </div>
       <aside className="w-4/5 max-w-md bg-inherit">
         <FileCard name={name} file={file} date={date} />
         <section>

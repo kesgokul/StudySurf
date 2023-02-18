@@ -17,6 +17,7 @@ export default function Submissions() {
   const teacherContext = useContext(TeacherContext);
   const { classCode, students } = teacherContext;
   const [submissions, setSubmissions] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState([]);
 
   const navigate = useNavigate();
 
@@ -42,11 +43,20 @@ export default function Submissions() {
     setSubmissions(allAssignments);
   }, [students]);
 
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/not-logged-in");
+  function handleItemSelect(e, file) {
+    if (selectedFiles.includes(file)) {
+      setSelectedFiles((files) => files.filter((f) => f !== file));
+    } else {
+      setSelectedFiles([...selectedFiles, file]);
     }
-  }, [isLoggedIn]);
+  }
+  console.log(selectedFiles);
+
+  // useEffect(() => {
+  //   if (!isLoggedIn) {
+  //     navigate("/not-logged-in");
+  //   }
+  // }, [isLoggedIn]);
 
   return (
     <DashLayout>
@@ -59,15 +69,32 @@ export default function Submissions() {
 
       <section className="mb-20">
         {submissions.map((sub) => {
-          return <SubmissionCard key={sub.studentId + sub.name} {...sub} />;
+          return (
+            <SubmissionCard
+              onSelect={handleItemSelect}
+              files={selectedFiles}
+              key={sub.studentId + sub.name}
+              {...sub}
+            />
+          );
         })}
       </section>
-      <button
-        onClick={() => navigate("/teacher/profile/premium")}
-        className="bg-gold-gradient bg-lg bg-left-top px-3 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  "
-      >
-        Get Premium
-      </button>
+      {(selectedFiles.length === 0 || selectedFiles.length > 2) && (
+        <button
+          onClick={() => navigate("/teacher/profile/premium")}
+          className="bg-gold-gradient bg-lg bg-left-top px-3 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  "
+        >
+          Get Premium
+        </button>
+      )}
+      {selectedFiles.length === 2 && (
+        <button
+          onClick={() => {}}
+          className="bg-green-500 w-32 bg-lg bg-left-top px-4 py-2 shadow-2xl rounded-3xl text-white fixed bottom-20  "
+        >
+          Compare
+        </button>
+      )}
     </DashLayout>
   );
 }

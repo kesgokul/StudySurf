@@ -32,7 +32,7 @@ export const fakeStudentData = [
             name: "Bernouli's Theorem ",
             deadline: new Date(),
             submitted: true,
-            file: "/fake-thumbnail.png",
+            file: "/fake-thumbnail-1.png",
             date: new Date(),
             plagScore: 56,
           },
@@ -58,7 +58,7 @@ export const fakeStudentData = [
             name: "Organic Chemistry (REV)",
             deadline: new Date(),
             submitted: true,
-            file: "/fake-thumbnail.png",
+            file: "/fake-thumbnail-2.png",
             date: new Date(),
             plagScore: 76,
           },
@@ -189,7 +189,6 @@ export const fakeSubbmissions = [
     plagScore: 20,
   },
 ];
-
 
 export const premiumPlans = [
   {
