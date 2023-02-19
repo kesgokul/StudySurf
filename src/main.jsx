@@ -6,6 +6,7 @@ import { AuthProvider, CHAIN } from "@arcana/auth";
 import { ProvideAuth } from "@arcana/auth-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UserContextProvider } from "./context/userContext";
+import { PolywrapProvider } from "@polywrap/react";
 
 import WhoAreYou from "./pages/WhoAreYou";
 import Login from "./pages/Login";
@@ -132,10 +133,12 @@ const provider = new AuthProvider(arcanaAppAddress, {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <PolywrapProvider />
     <ProvideAuth provider={provider}>
       <UserContextProvider>
         <RouterProvider router={router} />
       </UserContextProvider>
     </ProvideAuth>
+    <PolywrapProvider />
   </React.StrictMode>
 );
