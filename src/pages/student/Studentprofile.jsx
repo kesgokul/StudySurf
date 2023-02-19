@@ -28,9 +28,11 @@ export default function StudentProfile() {
   };
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/not-logged-in");
-    }
+    setTimeout(() => {
+      if (!isLoggedIn) {
+        navigate("/not-logged-in");
+      }
+    }, 4000);
   }, [isLoggedIn]);
 
   return (

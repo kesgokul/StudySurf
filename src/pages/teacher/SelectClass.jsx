@@ -44,12 +44,13 @@ export default function SelectClass() {
   }
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/not-logged-in");
-    }
-    // console.log(user);
+    setTimeout(() => {
+      if (!isLoggedIn) {
+        navigate("/not-logged-in");
+      }
+    }, 4000);
   }, [isLoggedIn]);
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <RegisterLayout teacher={true}>

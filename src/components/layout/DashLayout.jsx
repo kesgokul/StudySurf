@@ -43,7 +43,7 @@ export default function DashLayout(props) {
       <div className=" mt-10 px-4 w-full flex justify-between items-center">
         <div className="flex justify-start items-center gap-1">
           <img className=" w-14 h-14" src={fakeLogo} alt="logo" />
-          <p className="text-orange-500 font-righteous">Splash Screen</p>
+          <p className="text-orange-500 font-righteous">StudySurf</p>
         </div>
         <ProfilePic teacher={props.teacher ? true : false} />
       </div>

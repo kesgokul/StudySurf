@@ -10,7 +10,7 @@ export default function Layout(props) {
     >
       {props.children}
       <p className={"mt-auto text-gray-400"}>
-        ©Splash Screen | All rights reserved
+        ©StudySurf | All rights reserved
       </p>
     </motion.div>
   );

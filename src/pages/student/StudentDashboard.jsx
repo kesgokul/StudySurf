@@ -16,9 +16,11 @@ export default function StudentDashboard() {
   const { isLoggedIn } = useAuth();
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/not-logged-in");
-    }
+    setTimeout(() => {
+      if (!isLoggedIn) {
+        navigate("/not-logged-in");
+      }
+    }, 4000);
   }, [isLoggedIn]);
 
   return (

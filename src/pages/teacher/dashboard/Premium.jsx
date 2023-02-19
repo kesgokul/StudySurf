@@ -77,8 +77,6 @@ export default function Premium() {
     }
   }, [isLoggedIn]);
 
-  console.log(isLoggedIn);
-
   return (
     <DashLayout>
       {txSuccess && <PremiumSuccessModal onClose={() => setTxSuccess(false)} />}

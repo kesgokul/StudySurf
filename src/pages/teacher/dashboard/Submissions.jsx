@@ -55,15 +55,17 @@ export default function Submissions() {
     }
   }
 
-  // useEffect(() => {
-  //   if (!isLoggedIn) {
-  //     navigate("/not-logged-in");
-  //   }
-  // }, [isLoggedIn]);
+  useEffect(() => {
+    setTimeout(() => {
+      if (!isLoggedIn) {
+        navigate("/not-logged-in");
+      }
+    }, 4000);
+  }, [isLoggedIn]);
 
   return (
     <DashLayout>
-      <div className="w-full h-full mt-4 py-4 mx-4 bg-white flex items-center gap-2 bg-card-gradient rounded-t-xl border-b border-b-gray-300">
+      <div className=" px-4 w-full h-full mt-4 py-4 mx-4 bg-white flex items-center gap-2 bg-card-gradient rounded-t-xl border-b border-b-gray-300">
         <h2 className=" text-green-700 text-xl font-bold">Submissions</h2>
         <StudentIcon />
         <SlRefresh className="ml-auto" size={"25px"} />
