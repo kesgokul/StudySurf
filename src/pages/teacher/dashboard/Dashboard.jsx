@@ -6,10 +6,12 @@ import UserContext from "../../../context/userContext";
 import { useContext, useEffect } from "react";
 import { getStudentAssignments } from "../../../utils/helperFuncitons";
 import { useAuth } from "@arcana/auth-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const { students, userData } = useContext(UserContext);
   const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   // function getStudentAssignments(student) {
   //   const course = student.classes.find((c) => c.classCode === classCode);
@@ -21,9 +23,11 @@ export default function Dashboard() {
   // }
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/not-logged-in");
-    }
+    setTimeout(() => {
+      if (!isLoggedIn) {
+        navigate("/not-logged-in");
+      }
+    }, 4000);
   }, [isLoggedIn]);
 
   return (

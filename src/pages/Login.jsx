@@ -37,8 +37,9 @@ export default function Login() {
         </div>
         <p className=" text-white">Sign in with google</p>
       </div> */}
-      <Auth externalWallet={true} theme="light" img={"/Ellipse.png"} />
-      {/* <Outlet /> */}
+      <div className="mb-10">
+        <Auth theme="light" img={"/Ellipse.png"} />
+      </div>
     </Layout>
   );
 }

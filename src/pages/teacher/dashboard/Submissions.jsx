@@ -12,7 +12,7 @@ import DashLayout from "../../../components/layout/DashLayout";
 import TeacherContext from "../../../context/userContext";
 import SubmissionCard from "../../../components/cards/SubmissionCard";
 import StudentIcon from "../../../components/icons/StudentIcon";
-import PlagScoreModal from "../../../components/PlagScoreModal";
+import PlagScoreModal from "../../../components/cards/modals/PlagScoreModal";
 
 export default function Submissions() {
   const teacherContext = useContext(TeacherContext);

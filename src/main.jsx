@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { AuthProvider } from "@arcana/auth";
+import { AuthProvider, CHAIN } from "@arcana/auth";
 import { ProvideAuth } from "@arcana/auth-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UserContextProvider } from "./context/userContext";
@@ -123,7 +123,12 @@ const router = createBrowserRouter([
   },
 ]);
 const arcanaAppAddress = import.meta.env.VITE_ARCANA_APP_ADDRESS;
-const provider = new AuthProvider(arcanaAppAddress);
+const provider = new AuthProvider(arcanaAppAddress, {
+  network: "testnet",
+  chainConfig: {
+    chainId: CHAIN.POLYGON_MUMBAI_TESTNET,
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

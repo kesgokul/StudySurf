@@ -1,9 +1,9 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-import ProfilePic from "./icons/ProfilePic";
+import ProfilePic from "../../icons/ProfilePic";
 
-import { similarity } from "../compare/compare";
+import { similarity } from "../../../compare/compare";
 import { useEffect, useState } from "react";
 import { GrClose } from "react-icons/gr";
 

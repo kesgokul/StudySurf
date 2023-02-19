@@ -6,7 +6,7 @@ import UserContext from "../../context/userContext";
 
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@arcana/auth-react";
 

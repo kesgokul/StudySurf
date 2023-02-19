@@ -12,6 +12,7 @@ export default function StudentRegister() {
   const navigate = useNavigate();
 
   function handleFormSubmit(data) {
+    console.log("submit");
     const userObj = {
       userType: "student",
       email: user.id,

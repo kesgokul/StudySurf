@@ -3,30 +3,85 @@ import TeacherIcon from "../../../components/icons/TeacherIcon";
 import UserContext from "../../../context/userContext";
 import ProfilePic from "../../../components/icons/ProfilePic";
 import PremiumPlanCard from "../../../components/cards/PremiumPlanCard";
+import PremiumSuccessModal from "../../../components/cards/modals/PremiumSuccessModal";
 
 import { BsStars } from "react-icons/bs";
 import { HiQuestionMarkCircle } from "react-icons/hi";
 import { GrMail } from "react-icons/gr";
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { premiumPlans } from "../../../fakeData";
 
 import { useEffect } from "react";
-import { useAuth } from "@arcana/auth-react";
+import { useAuth, useProvider } from "@arcana/auth-react";
+import { ethers } from "ethers";
+import STUDYSURFPREMIUM_ABI from "../../../../constants/studySurfPremium.json";
+import { studySurfPremiumAddress } from "../../../../constants/contractAddresses";
+import {
+  STANDARD_PRICE,
+  ENTERPRISE_PRICE,
+} from "../../../../constants/planConfig";
+// import { EthereumProvider } from "@arcana/auth";
 
 export default function Premium() {
+  const [txSuccess, setTxSuccess] = useState(false);
   const [yearlyPlan, setYearlyPlan] = useState(false);
   const { userData } = useContext(UserContext);
-
   const { isLoggedIn } = useAuth();
+  const { provider } = useProvider();
+  let ssPremiumContract;
+
+  // function to call the StudySurfPremium contract to subscribe to a plan
+  const buyPremium = useCallback(
+    async (plan) => {
+      if (!isLoggedIn) {
+        console.log("user not logged In");
+        return;
+      }
+
+      const planId = plan === "Enterprise" ? 2 : 1;
+      const value = plan === "Enterprise" ? ENTERPRISE_PRICE : STANDARD_PRICE;
+
+      // ssPremiumContract.on("Subscribed")
+      try {
+        const tx = await ssPremiumContract.subscribe(planId, {
+          value: value,
+          gasLimit: 20000000,
+        });
+        const txReceipt = await tx.wait(1);
+        console.log(tx);
+        console.log(txReceipt);
+
+        if (txReceipt.status === 1) {
+          setTxSuccess(true);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [isLoggedIn]
+  );
 
   useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/not-logged-in");
+    if (isLoggedIn) {
+      async function createContractInstance() {
+        const web3Provider = new ethers.providers.Web3Provider(provider);
+        const signer = web3Provider.getSigner();
+        // const code = await web3Provider.getCode(studySurfPremiumAddress);
+        ssPremiumContract = new ethers.Contract(
+          studySurfPremiumAddress,
+          STUDYSURFPREMIUM_ABI,
+          signer
+        );
+      }
+      createContractInstance();
     }
   }, [isLoggedIn]);
 
+  console.log(isLoggedIn);
+
   return (
     <DashLayout>
+      {txSuccess && <PremiumSuccessModal onClose={() => setTxSuccess(false)} />}
       <main className=" mt-10 pt-4 w-full h-full  bg-black rounded-t-xl">
         <div className="p-4  flex items-center gap-4">
           <h2 className="text-xl font-bold text-transparent bg-gold-gradient bg-clip-text bg-lg bg-right-bottom">
@@ -88,6 +143,7 @@ export default function Premium() {
                   name={p.name}
                   features={p.features}
                   price={p.price}
+                  onbuyPremium={buyPremium}
                 />
               );
             })}

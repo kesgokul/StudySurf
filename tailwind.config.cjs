@@ -26,6 +26,7 @@ module.exports = {
         "green-gradient":
           "linear-gradient(180deg, rgba(52, 245, 71, 0.56) 0%, rgba(202, 253, 94, 0.26) 52.6%, rgba(250, 255, 7, 0) 100%)",
         "orange-gradient": "linear-gradient(180deg, #FF9207 0%, #FFD601 100%)",
+        success: "/bg-success.png",
       },
       fontFamily: {
         righteous: ["Righteous"],

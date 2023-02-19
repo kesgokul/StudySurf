@@ -12,12 +12,14 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 
 import { useContext, useEffect } from "react";
 import { useAuth } from "@arcana/auth-react";
+import { useNavigate } from "react-router-dom";
 
 export default function StudentProfile() {
   const teacherContext = useContext(TeacherContext);
-  const { isLoggedIn } = useAuth();
-
   const { students } = teacherContext;
+  const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
   const studentData = {
     name: students[0].name,
     email: students[0].email,
